@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ullody 个人站点</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <!-- 主题 -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+  <!--  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
+</head>
+<body>
+  <div id="app">加载中...</div>
+  <script>
+    window.$docsify = {
+      name: 'ullody 个人站点', // 文档标题，会显示在侧边栏顶部
+      repo: 'https://github.com/llody55/ullody-doc.git', // 右上角Github图标链接
+      loadNavbar: true, // 默认加载 _navbar.md，作为顶部导航栏
+      loadSidebar: true, // 默认加载 _sidebar.md，作为侧边栏
+      autoHeader: true, //自动为每个页面增加标题,需要同时设置 loadSidebar 和 autoHeader
+      subMaxLevel: 3, // 生成目录的最大层级
+      maxLevel: 4, //最大支持渲染的标题层级
+      auto2top: true, //切换页面后是否自动跳转到页面顶部。
+      //hideSidebar: true, //隐藏侧边栏
+      //relativePath: true, // 启用相对路径
+      //themeColor: '#3F51B5' //替换主题色
+      //mergeNavbar: true, //小屏设备下合并导航栏到侧边栏。
+      //ext: '.md', //资源的文件扩展名。
+      //notFoundPage: true,  //在找不到指定页面时加载_404.md
+      onlyCover: true, //只在访问主页时加载封面。
+      coverpage: true,
+      count:{
+        countable:true,
+        fontsize:'0.9em',
+        color:'rgb(90,90,90)',
+        language:'chinese'
+      },
+      //全文搜索
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto',
+        placeholder: '搜索',
+        noData: '找不到结果',
+        // 搜索标题的最大程级, 1 - 6
+        depth: 3,
+      }
+    }
+
+  </script>
+  <!-- Docsify v4 -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
+    <!-- 一键复制插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+    <!-- 代码高亮 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-shell-session.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-django.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-git.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-docker.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-go.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-promql.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-http.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-groovy.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.24.1/components/prism-java.min.js"></script>
+  <!--全局搜索-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!--分页-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!--图片缩放-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!--字数统计-->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!--一键复制-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+</body>
+</html>
