@@ -1,14 +1,13 @@
 <!-- _navbar.md -->
 
-* 入门
+* 本人开源
 
-  * [快速开始](zh-cn/quickstart.md)
-  * [多页文档](zh-cn/more-pages.md)
-  * [定制导航栏](zh-cn/custom-navbar.md)
-  * [封面](zh-cn/cover.md)
+  * [Udocker](zh-cn/quickstart.md)
+  * [UniOps](zh-cn/more-pages.md)
+  * [Gosible](zh-cn/custom-navbar.md)
+  * [Dockertail](zh-cn/cover.md)
+* 开源推荐
 
-
-* 配置
   * [配置项](zh-cn/configuration.md)
   * [主题](zh-cn/themes.md)
   * [使用插件](zh-cn/plugins.md)
