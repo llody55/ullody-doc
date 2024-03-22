@@ -1,6 +1,6 @@
 <!-- _coverpage.md -->
 
-![logo](images)
+![logo](http://pt.llody.top:1080/7.jpg "logo")
 
 ## 记录运维之路所学所感。
 
