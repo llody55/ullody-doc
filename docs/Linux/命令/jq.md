@@ -10,14 +10,14 @@
 
 ### 基于Debian的系统
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install jq
 ```
 
 ### 对于CentOS，需要启用EPEL仓库
 
-```
+```bash
 安装EPEL源：
 yum install epel-release -y
 安装完EPEL源后，可以查看下jq包是否存在：
@@ -30,7 +30,7 @@ yum install jq
 
 ### 创建一个json.txt文件
 
-```
+```bash
 cat json.txt 
 [{"name":"站长工具","url":"http://tool.chinaz.com","address":{"city":"厦门","country":"中国"},"arrayBrowser":[{"name":"Google","url":"http://www.google.com"},{"name":"Baidu","url":"http://www.baidu.com"}]},{"name":"站长之家","url":"http://tool.zzhome.com","address":{"city":"大连","country":"中国"},"arrayBrowser":[{"name":"360","url":"http://www.so.com"},{"name":"bing","url":"http://www.bing.com"}]}]
 
@@ -42,7 +42,7 @@ cat json.txt
 
 > |，它如同linux命令中的管道线——把前面命令的输出当作是后面命令的输入。如下命令把.[0]作为{…}的输入，进而访问嵌套的属性，如.name和.address.city。观察如下几个命令，通过改变|前后的输入和输出来达到不同的效果
 
-```
+```bash
 cat json.txt | jq '.[0] | {name:.name,city:.address.city}'
 
 {
@@ -72,7 +72,7 @@ cat json.txt | jq ".[] | {name:.arrayBrowser[1].name,city:.address.city}"
 
 ### 数组[] 如果希望把jq的输出当作一个数组
 
-```
+```bash
 cat json.txt | jq "[.[] | {name:.arrayBrowser[1].name,city:.address.city}]"
 [
   {
@@ -89,7 +89,7 @@ cat json.txt | jq "[.[] | {name:.arrayBrowser[1].name,city:.address.city}]"
 
 ### 自定义key在{}中，冒号前面的名字是映射的名称，你可以任意修改
 
-```
+```bash
 cat json.txt | jq "[.[] | {name_001:.arrayBrowser[1].name,city_002:.address.city}]"
 
 [

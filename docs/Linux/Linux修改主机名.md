@@ -1,6 +1,6 @@
 ## 临时更换主机名
 
-```
+```bash
 hostname new_hostname
 ```
 
@@ -8,7 +8,7 @@ hostname new_hostname
 
 ## 永久更换Hostname
 
-```
+```bash
 hostnamectl set-hostname newHostname
 ```
 

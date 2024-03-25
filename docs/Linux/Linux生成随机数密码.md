@@ -8,7 +8,7 @@ date +%s |sha256sum |base64 |head -c 10 ;echo
 
 ## urandom
 
-```
+```bash
 #tr参数
 -c或——complerment：取代所有不属于第一字符集的字符；
 -d或——delete：删除所有属于第一字符集的字符；
@@ -39,7 +39,7 @@ s5-yTgMa8G
 
 ## openssl
 
-```
+```bash
 [root@llody55 shell]# openssl rand -base64 10
 6kf9CHiiRgiSVQ==
 [root@llody55 shell]# openssl rand -base64 10|tr A-Z a-z

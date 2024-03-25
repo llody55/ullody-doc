@@ -6,7 +6,7 @@
 
 ### **查看账户的锁定状态**
 
-```
+```bash
 pam_tally2 -u root
 ```
 
@@ -14,7 +14,7 @@ pam_tally2 -u root
 
 ### **解锁账户**
 
-```
+```bash
 pam_tally2 -u root -r
 ```
 
@@ -26,25 +26,25 @@ pam_tally2 -u root -r
 
 #### 示例
 
-```
+```bash
 faillock
 ```
 
 > 查看失败的登录尝试。这将显示当前用户的失败登录尝试。要查看其他用户的失败登录尝试，你需要超级用户权限。
 
-```
+```bash
 faillock --reset
 ```
 
 > 清除失败的登录尝试。这将清除当前用户的失败登录尝试。要清除其他用户的失败登录尝试，你需要超级用户权限。
 
-```
+```bash
 faillock --user username
 ```
 
 > 使用 `--user` 选项来显示指定用户的失败登录尝试。这将显示指定用户的失败登录尝试的列表。
 
-```
+```bash
 faillock --user username --reset
 ```
 

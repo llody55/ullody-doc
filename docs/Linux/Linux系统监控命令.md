@@ -4,7 +4,7 @@
 >
 > 下载：[http://sourceforge.net/projects/nethogs/files/nethogs/0.8/nethogs-0.8.0.tar.gz/download](http://sourceforge.net/projects/nethogs/files/nethogs/0.8/nethogs-0.8.0.tar.gz/download)
 
-```
+```bash
 [root@localhost ~]#yum  -y install libpcap-devel  ncurses-devel
 [root@localhost ~]# tar zxvf nethogs-0.8.0.tar.gz
 [root@localhost ~]# cd nethogs
@@ -18,14 +18,13 @@
 >
 > 下载：[http://www.iozone.org/src/current/](http://www.iozone.org/src/current/)
 
-```
+```bash
 [root@localhost current]# tar xvf iozone3_420.tar
 [root@localhost ~]# cd iozone3_420/src/current/
 [root@localhost current]# make linux
 [root@localhost current]# ./iozone -a -n 512m -g 16g -i 0 -i 1 -i 5 -f /mnt/iozone -Rb ./iozone.xls
 ```
 
->
 > * -a使用全自动模式
 > * -n为自动模式设置最小文件大小(Kbytes)。
 > * -g设置自动模式可使用的最大文件大小Kbytes。
@@ -38,7 +37,7 @@
 
 > IOTop命令是专门显示硬盘IO的命令,界面风格类似top命令。
 
-```
+```bash
 [root@localhost ~]# yum -y install iotop
 ```
 
@@ -46,7 +45,7 @@
 
 > IPtraf 是一个运行在Linux下的简单的网络状况分析工具。
 
-```
+```bash
 [root@localhost ~]# yum -y install iptraf
 ```
 
@@ -56,7 +55,7 @@
 >
 > 下载：[http://www.ex-parrot.com/~pdw/iftop/](http://www.ex-parrot.com/~pdw/iftop/)
 
-```
+```bash
 [root@localhost ~]# tar zxvf iftop-0.17.tar.gz
 [root@localhost ~]# cd iftop-0.17 
 [root@localhost iftop-0.17]# ./configure
@@ -65,7 +64,6 @@
 [root@localhost iftop-0.17]# iftop -i eth0  #指定监控网卡接口
 ```
 
->
 > * TX：发送流量
 > * RX：接收流量
 > * TOTAL：总流量
@@ -88,7 +86,7 @@ rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6
 >
 > 下载：[http://sourceforge.jp/projects/sfnet_nmon/releases/](http://sourceforge.jp/projects/sfnet_nmon/releases/)
 
-```
+```bash
 [root@localhost ~]# chmod +x nmon_x86_64_rhel6
 [root@localhost ~]# mv nmon_x86_64_rhel6 /usr/sbin/nmon
 [root@localhost ~]# nmon
@@ -98,7 +96,7 @@ rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6
 
 > MultiTail 是在控制台打开多个窗口用来实现同时监控多个日志文档、类似 tail 命令的功能的软件。
 
-```
+```bash
 rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm （安装第三方YUM源）
 
 [root@localhost ~]# yum -y install  multitail
@@ -113,7 +111,7 @@ rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6
 >
 > 下载：[http://code.google.com/p/httperf/downloads/list](http://code.google.com/p/httperf/downloads/list)
 
-```
+```bash
 [root@localhost ~]# tar zxvf httperf-0.9.0.tar.gz
 [root@localhost ~]# cd httperf-0.9.0
 [root@localhost httperf-0.9.0]# ./configure
@@ -121,7 +119,6 @@ rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6
 [root@localhost ~]# httperf --hog --server=192.168.0.202 --uri=/index.html --num-conns=10000 --wsess=10,10,0.1
 ```
 
->
 > 参数说明：
 >
 > * --hog：让 httperf 尽可能多产生连接，httperf 会根据硬件配置，有规律的产生访问连接；
@@ -130,11 +127,10 @@ rpm -ivh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6
 
 ## 系统性能分析工具:perf
 
-```
+```bash
 yum install perf
 ```
 
->
 > perf 是Linux的一款性能分析工具，能够进行函数级和指令级的热点查找，可以用来分析程序中热点函数的CPU占用率，从而定位性能瓶颈。
 >
 > 系统性能优化通常可以分为两个阶段：性能分析和性能优化。

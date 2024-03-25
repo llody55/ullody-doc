@@ -11,7 +11,6 @@
 * **Dockerfile** ：这是一个文本文件，其中包含了一系列的指令和参数，用来自动构建 Docker 镜像。
 * **Docker Hub** ：一个类似于 GitHub 的服务，用户可以在这里找到、分享和存储 Docker 镜像。
 
-
 #### 如何使用
 
 1. **安装 Docker** ：首先，你需要在你的计算机上安装 Docker。Docker 支持多种平台，包括 Windows、MacOS 和各种 Linux 发行版。
@@ -29,26 +28,25 @@
 #### 官网地址
 
 * [官方文档](https://docs.docker.com/ "官方文档")
-
 * [官方安装教程](https://docs.docker.com/engine/install/centos/ "官方安装教程")
 
 ### 安装 -- 以Linux为例
 
 #### 安装常用工具
 
-```
+```bash
 yum -y install gcc lrzsz vim wget net-tools bash-completion
 ```
 
 #### 关闭selinux
 
-```
+```bash
 sed -i '/SELINUX/s/enforcing/disabled/g' /etc/selinux/config 
 ```
 
 #### 关闭防火墙
 
-```
+```bash
 systemctl status firewalld
 systemctl stop firewalld
 systemctl disable firewalld
@@ -58,14 +56,14 @@ systemctl disable firewalld
 
 ##### 安装依赖包
 
-```
+```bash
 yum install -y epel-release
 yum install yum-utils device-mapper-persistent-data lvm2
 ```
 
 ##### 添加docker镜像软件源
 
-```
+```bash
 # 官方源
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 # 阿里源
@@ -77,7 +75,7 @@ yum makecache fast
 
 ##### 安装版本
 
-```
+```bash
 # 安装最新版
 yum install -y docker-ce docker-ce-cli containerd.io
 
@@ -91,13 +89,13 @@ yum install -y docker-ce-18.09.9 docker-ce-cli-18.09.9 containerd.io
 
 ##### 卸载方法
 
-```
+```ba
 yum remove docker docker-common docker-selinux -y
 ```
 
 ##### 配置镜像加速
 
-```
+```bash
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
@@ -108,6 +106,137 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 sudo systemctl enable docker
 ```
+
+##### 优化配置（可选）
+
+```bash
+{
+ "registry-mirrors": ["https://1do67ezy.mirror.aliyuncs.com"],
+ "experimental": true,
+ "insecure-registries":["192.168.1.221"],
+ "exec-opts": ["native.cgroupdriver=systemd"],
+ "log-driver":"json-file",
+ "log-opts": {"max-size":"500m", "max-file":"3"}
+}
+```
+
+> 部分选项参考
+>
+> "api-cors-header":"", 在引擎API中设置CORS标头
+>
+> "authorization-plugins":[], 要加载的授权插件
+>
+> "bridge":"", 将容器附加到网桥
+>
+> "cgroup-parent":"", 为所有容器设置父cgroup
+>
+> "cluster-store":"", 分布式存储后端的URL
+>
+> "cluster-store-opts":{}, 设置集群存储选项（默认map []）
+>
+> "cluster-advertise":"", 要通告的地址或接口名称
+>
+> "data-root":"",宿主机存放容器数据目录，默认/var/lib/docker/
+>
+> "debug": true, 启用调试模式，启用后，可以看到很多的启动信息。默认false
+>
+> "default-gateway":"", 容器默认网关IPv4地址
+>
+> "default-gateway-v6":"", 容器默认网关IPv6地址
+>
+> "default-runtime":"runc", 容器的默认OCI运行时（默认为" runc"）
+>
+> "default-ulimits":{}, 容器的默认ulimit（默认[]）
+>
+> "dns": ["192.168.1.1"], 设定容器DNS的地址，在容器的 /etc/resolv.conf文件中可查看。
+>
+> "dns-opts": [], 容器 /etc/resolv.conf 文件，其他设置
+>
+> "dns-search": [], 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的 主机时，DNS不仅搜索host，还会搜索host.example.com 。 注意：如果不设置， Docker 会默认用主机上的 /etc/resolv.conf 来配置容器。
+>
+> "exec-opts": [], 运行时执行选项
+>
+> "exec-root":"", 执行状态文件的根目录（默认为’/var/run/docker‘）
+>
+> "fixed-cidr":"", 容器ip需要符合IPv4地址
+>
+> "fixed-cidr-v6":"", 容器ip需要符合IPv6地址
+>
+> "group": "", UNIX套接字的组（默认为"docker"）
+>
+> "hosts": [], 设置容器hosts
+>
+> "icc": false, 启用容器间通信（默认为true）
+>
+> "ip":"0.0.0.0", 绑定容器端口时的默认IP（默认0.0.0.0）
+>
+> "iptables": false, 启用iptables规则添加（默认为true）　　"ipv6": false, 启用IPv6网络
+>
+> "ip-forward": false, 默认true, 启用 net.ipv4.ip_forward ,进入容器后使用 sysctl -a | grepnet.ipv4.ip_forward 查看
+>
+> "ip-masq":false, 启用IP伪装（默认为true）
+>
+> "labels":["nodeName=node-121"], docker主机的标签，很实用的功能,例如定义：–label nodeName=host-121
+>
+> "live-restore": true, 在容器仍在运行时启用docker的实时还原
+>
+> "log-driver":"", 容器日志的默认驱动程序（默认为" json-file"）
+>
+> "log-level":"", 设置日志记录级别（"调试"，"信息"，"警告"，"错误"，"致命"）（默认为"信息"）
+>
+> "max-concurrent-downloads":3, 设置每个请求的最大并发下载量（默认为3）
+>
+> "max-concurrent-uploads":5, 设置每次推送的最大同时上传数（默认为5）
+>
+> "mtu": 0, 设置容器网络MTU
+>
+> "oom-score-adjust":-500, 设置守护程序的oom_score_adj（默认值为-500）
+>
+> "pidfile": "", Docker守护进程的PID文件
+>
+> "raw-logs": false, 全时间戳机制
+>
+> "selinux-enabled": false, 默认 false，启用selinux支持
+>
+> "storage-driver":"", 要使用的存储驱动程序
+>
+> "swarm-default-advertise-addr":"", 设置默认地址或群集广告地址的接口
+>
+> "tls": true, 默认 false, 启动TLS认证开关
+>
+> "tlscacert": "", 默认 ~/.docker/ca.pem，通过CA认证过的的certificate文件路径
+>
+> "tlscert": "", 默认 ~/.docker/cert.pem ，TLS的certificate文件路径
+>
+> "tlskey": "", 默认~/.docker/key.pem，TLS的key文件路径
+>
+> "tlsverify": true, 默认false，使用TLS并做后台进程与客户端通讯的验证
+>
+> "userland-proxy":false, 使用userland代理进行环回流量（默认为true）
+>
+> "userns-remap":"", 用户名称空间的用户/组设置
+>
+> "bip":"192.168.88.0/22", 指定网桥IP
+>
+> "registry-mirrors": ["https://192.498.89.232:89"], 设置镜像加速
+>
+> "insecure-registries": ["120.123.122.123:12312"], 设置私有仓库地址可以设为http
+>
+> "storage-opts": [
+>
+> "overlay2.override_kernel_check=true",
+>
+> "overlay2.size=15G"
+>
+> ], 存储驱动程序选项
+>
+> "log-opts": {
+>
+> "max-file": "3",
+>
+> "max-size": "10m",
+>
+> }
 
 #### 镜像管理
 
@@ -182,7 +311,7 @@ sudo systemctl enable docker
   * 示例: `docker run -it ubuntu /bin/bash` 以交互模式启动一个 `ubuntu` 容器并打开一个终端会话。
 * `docker run `参数示例。
 
-  ```
+  ```bash
   docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
    OPTIONS说明（常用）：有些是一个减号，有些是两个减号
   --name="容器新名字": 为容器指定一个名称；
@@ -205,7 +334,7 @@ sudo systemctl enable docker
   ```
 * 补充
 
-  ```
+  ```bash
   示例：
   内存限额：
   允许容器最多使用500M内存和100M的Swap，并禁用 OOM Killer：
@@ -342,7 +471,6 @@ sudo systemctl enable docker
 
 > 但是最常用的还是Bind Mounts方式进行挂载。
 
-
 ### Dockerfile入门
 
 > **Dockerfile是用来构建Docker镜像的构建文件，是由一系列命令和参数构成的脚本。**
@@ -361,7 +489,6 @@ sudo systemctl enable docker
 
 #### **dockerfile执行流程**
 
->
 > **（1）docker从基础镜像运行一个容器**
 >
 > **（2）执行一条指令并对容器作出修改**
@@ -374,7 +501,7 @@ sudo systemctl enable docker
 
 #### DockerFile体系结构(**保留字指令**)
 
-```
+```bash
 FROM：基础镜像，当前新镜像是基于哪个镜像的
 MAINTAINER：镜像维护者的姓名和邮箱地址
 RUN：容器构建时需要运行的命令
@@ -400,7 +527,7 @@ ONBUILD：当构建一个被继承的Dockerfile时运行命令，父镜像在被
 
 #### java
 
-```
+```bash
 vim Dockerfile
 
 FROM debian:oldstable-slim
@@ -423,7 +550,7 @@ ENV  export DOCKER_BUILDKIT=1
 
 #### nginx
 
-```
+```bash
 vim nginx.conf
 
 user  nginx;
@@ -459,8 +586,7 @@ http {
 
 ```
 
-
-```
+```bash
 vim Dockerfile
 
 FROM nginx:1.22.0
@@ -474,10 +600,9 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-
 #### Jenkins-agent
 
-```
+```bash
 FROM centos:7
 LABEL maintainer llody
 
@@ -520,7 +645,6 @@ WORKDIR /opt/
 ENTRYPOINT ["jenkins-slave"]
 ```
 
->
 > 组件包含：
 >
 > jenkins-slave
@@ -539,7 +663,7 @@ ENTRYPOINT ["jenkins-slave"]
 
 #### Gitlab-Runner
 
-```
+```bash
 FROM centos:7
 LABEL maintainer llody
 
@@ -574,19 +698,19 @@ COPY helm kubectl /usr/bin/
 
 #### it-Tools工具箱
 
-```
+```bash
 docker run -d --name it-tools --restart unless-stopped -p 8080:80 corentinth/it-tools:latest
 ```
 
 #### linux速查
 
-```
+```bash
 docker run --name linux-command -itd -p 9665:3000 wcjiang/linux-command:latest
 ```
 
 #### mysql
 
-```
+```ba
 # 创建持久化目录
 mkdir -p /data/mysql/{logs,data,conf,mysql-files}
 
@@ -614,7 +738,7 @@ docker run -p 33066:3306 --name mysql -v /data/mysql/logs:/var/log/mysql -v  /da
 
 #### rabbitmq
 
-```
+```bash
 # 创建数据目录
 mkdir -p /data/rabbitmq/data
 
@@ -624,7 +748,7 @@ docker run -d --name rabbitmq  -v /data/rabbitmq/data:/var/lib/rabbitmq -e RABBI
 
 #### redis
 
-```
+```bash
 # 创建数据目录
 mkdir -p /data/redis/{conf,data}
 

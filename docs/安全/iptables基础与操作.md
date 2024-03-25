@@ -2,7 +2,7 @@
 
 ### 常用操作
 
-```
+```bash
 # 列出规则 -v 显示详细信息，-x 显示计数器精确值，-L 后不跟链名则显示表中所有链的规则，-n 不进行地址反解
 iptables --line-numbers -nvx -t filter -L INPUT
 # 在指定链的末尾添加规则
@@ -49,7 +49,7 @@ iptables -t filter -I INPUT -p tcp -m conntrack --ctstate RELATED,ESTABLISHED -j
 
 ### 自定义链
 
-```
+```bash
 # 创建自定义链
 iptables -t filter -N NEW_CHAIN
 # 向自定义链添加规则
@@ -64,6 +64,6 @@ iptables -X NEW_CHAIN
 
 ### 查看统计信息
 
-```
-iptables -nvL [INPUT|FORWARD|OUTPUT|myCHAINNAME] --line-numbers | less
+```bash
+iptables -nvL [INPUT|FORWARD|OUTPUT] --line-numbers | less
 ```

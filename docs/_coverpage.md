@@ -5,7 +5,7 @@
 ## 记录运维之路所学所感。
 
 [GitHub](https://github.com/llody55/ullody-doc/)
-[文档中心](文档)
+[文档中心](/_sidebar.md)
 
 <!-- 背景色 -->
 

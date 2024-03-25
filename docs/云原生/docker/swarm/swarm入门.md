@@ -18,7 +18,7 @@
 >
 > 选择一台 Docker 已安装的机器作为 Swarm 的管理节点。使用以下命令初始化 Swarm 集群
 
-```
+```bash
 docker swarm init --advertise-addr <MANAGER-IP>
 ```
 
@@ -32,7 +32,7 @@ docker swarm init --advertise-addr <MANAGER-IP>
 >
 > 在已经初始化的机器上执行：# docker swarm join-token manager
 
-```
+```bash
 docker swarm join \
     --token SWMTKN-1-3by2djvsu8cyzo8pzzqrrsmoiszlcmj1ymsyzrqu0e5m4myar6-3ypif5p1vyzv7j7h362ah1kbj \
     192.168.52.36:2377
@@ -42,7 +42,7 @@ docker swarm join \
 
 #### 查看集群节点
 
-```
+```bash
 [root@node_t_36 zyx_p]# docker node ls
 ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS
 5i800ms4daxhfk4z02wux52bl     node_t_37           Ready               Active              Reachable
@@ -69,7 +69,7 @@ sacj1t4flf4e275d2fwfho6q3 *   node_t_36           Ready               Active    
 
 > docker swarm集群已经有容器服务，删除节点node_t_37 的时候，需要先将该节点的服务迁移到其他节点,确保容器服务正常
 
-```
+```bash
 [root@node_t_37 ~]#docker node  update --availability drain node_t_37 将节点停用,该节点上的容器会迁移到其他节点
 [root@node_t_37 ~]#docker ps  检查容器迁移情况，当node_t_37的容器都迁移完后，停止docker服务
 [root@node_t_37 ~]#systemctl stop docker.service 停止docker服务（删除节点前，需先停该节点的docker服务）
@@ -86,13 +86,13 @@ sacj1t4flf4e275d2fwfho6q3 *   node_t_36           Ready               Active    
 
 ### 创建 Overlay 网络
 
-```
+```ba
 docker network create -d overlay app-overlay
 ```
 
 ### 部署服务
 
-```
+```bash
 docker service create --name my-web --publish 80:80 --replicas 3 --network app-overlay llody/nginx:1.20.0
 ```
 
@@ -100,7 +100,7 @@ docker service create --name my-web --publish 80:80 --replicas 3 --network app-o
 
 ### 扩缩容
 
-```
+```bash
 docker service scale my-web=5
 ```
 
@@ -108,7 +108,7 @@ docker service scale my-web=5
 
 ### 滚动更新
 
-```
+```bash
 docker service update --image nginx:1.23.4 my-web
 ```
 
@@ -123,20 +123,20 @@ docker service update --image nginx:1.23.4 my-web
 > * `--update-failure-action`: 当更新失败时的动作。默认为 `pause`，表示当更新失败时暂停更新，允许你检查问题并决定是否继续。
 > * `--update-order`: 控制更新的顺序。默认为 `stop-first`，即先停止旧容器再启动新容器。另一个选项是 `start-first`，先启动新容器，然后再停止旧容器。
 
-```
+```bash
 # 每次更新 2 个容器，每批次之间等待 10 秒
 docker service update --image nginx:1.23.4 --update-parallelism 2 --update-delay 10s my-web
 ```
 
 ### 查看更新状态
 
-```
+```bash
 docker service ps my-web
 ```
 
 ### 回滚更新
 
-```
+```bash
 docker service update --rollback my-web
 ```
 

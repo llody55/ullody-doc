@@ -1,6 +1,6 @@
 ## 安装speedtest
 
-```
+```bash
 git clone https://github.com/sivel/speedtest-cli.git
 ```
 
@@ -8,7 +8,7 @@ git clone https://github.com/sivel/speedtest-cli.git
 
 ## 运行
 
-```
+```bash
 ./speedtest.py
 ```
 
