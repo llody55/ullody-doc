@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="https://static.llody.top/images/DM_20240323222423_001_00001.ico">
   <!-- 文件夹样式 -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" /> -->
   <!-- 箭头样式 -->
@@ -51,7 +52,7 @@
       <div class="Tencent_code">
         <h4>关注作者公众号</h4>
         <!-- <p style="font-size: 12px;">一起学</p> -->
-        <img src="https://static.llody.top/images/15552110846978_gitlab-3881421547.png" alt="EnjoyToShare" />
+        <img src="https://static.llody.top/images/qrcode_for_gh_85deef57d507_430.jpg" alt="EnjoyToShare" />
       </div>
     </div>
 </div>
@@ -103,7 +104,18 @@
       // 提示样式
       //默认情况下，样式 ​​flat​​​ 和 ​​callout​​​（默认值：​​callout​​​）和类型 ​​NOTE​​​，​​TIP​​​，​​WARNING​​​ 和 ​​DANGER​​ 支持。在类型和标题之间使用以下映射
       'flexible-alerts': {
-          style: 'flat'
+        note: {
+          label: "Note"
+        },
+        tip: {
+          label: "Tipp"
+        },
+        warning: {
+          label: "Warnung"
+        },
+        attention: {
+          label: "Achtung"
+        }
       },
       copyCode: {
         buttonText: {'/' : '点击复制'},

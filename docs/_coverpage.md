@@ -1,11 +1,10 @@
 <!-- _coverpage.md -->
-
-![logo](http://pt.llody.top:1080/7.jpg "logo")
+![](https://static.llody.top/images/DM_20240323220512_001.png)
 
 ## 记录运维之路所学所感。
 
 [GitHub](https://github.com/llody55/ullody-doc/)
-[文档中心](/_sidebar.md)
+[文档中心](文档)
 
 <!-- 背景色 -->
 
