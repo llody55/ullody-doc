@@ -1,3 +1,11 @@
+<!--
+ * @Author: llody 745719408@qq.com
+ * @Date: 2024-03-18 09:58:16
+ * @LastEditors: llody 745719408@qq.com
+ * @LastEditTime: 2024-03-26 19:04:28
+ * @FilePath: \ullody-doc\docs\_sidebar.md
+ * @Description: 自定义侧边栏
+-->
 <!-- docs/_sidebar.md -->
 
 * [首页](/_sidebar.md)
@@ -24,16 +32,23 @@
       * [docker开启API和TLS认证](脚本/python/python操作docker/docker开启API和TLS认证.md "docker开启API和TLS认证")
     * [python操作mysql](脚本/python/python操作mysql)
       * [mysql死锁处理脚本](脚本/python/python操作mysql/mysql死锁处理脚本.md "mysql死锁处理脚本")
+    * [python操作ssh](脚本/python/python操作ssh)
+      * [文件上传下载](脚本/python/python操作ssh/文件上传下载.md "文件上传下载")
+    * [密码生成脚本](脚本/python/密码生成脚本.md "密码生成脚本")
+    * [端口探测脚本](脚本/python/端口探测.md "端口探测脚本")
 * [CICD](CICD/ "CICD")
   * [jenkins](CICD/jenkins/ "jenkins")
   * [gitlab-runner](CICD/gitlab-runner "gitlab-runner")
 * [云原生](云原生)
   * [Docker](云原生/docker/ "docker")
-    * [docker入门](云原生/docker/docker.md "docker一文入门")
-    * [docker进阶](云原生/docker/)
+    * [docker入门](云原生/docker/docker.md "入门")
+    * [docker进阶](云原生/docker/ "进阶")
       * [Docker Compose](云原生/docker/compose.md)
       * [Docker Swarm](云原生/docker/swarm/swarm入门.md "Docker Swarm")
-    * [docker高阶应用]
+    * [docker高阶应用](云原生/docker/高阶应用 "高阶")
+      * [常用Dockerfile](云原生/docker/高阶应用/常用Dockerfile "常用Dockerfile")
+        * [busybox-tools](云原生/docker/高阶应用/busybox-tools.md "busybox-tools")
+        * [nginx](云原生/docker/高阶应用/nginx.md "nginx")
     * [多主机组网](云原生/Docker/多主机组网/实验文档.md "多主机组网")
   * [kubernetes](云原生/kubernetes/ "kubernetes")
 * [云平台](云平台 "云平台")

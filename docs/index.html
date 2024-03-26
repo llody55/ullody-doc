@@ -105,6 +105,26 @@
       'flexible-alerts': {
           style: 'flat'
       },
+      copyCode: {
+        buttonText: {'/' : '点击复制'},
+        errorText: {'/' : '错误'},
+        successText: {'/' : '已复制'}
+      },
+      plugins: [
+          function (hook, vm) {                                   
+            var footer = [
+                '<hr/>',
+                '<footer style="text-align: center">',
+                '<span>llody&copy;2024.</span>',
+                '<span> 基于 <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a></span>',
+                ' V' + window.Docsify.version,
+                '</footer>'
+            ].join('');
+              hook.afterEach(function(html) {
+              return html + footer;
+            });
+          }                 
+      ],
     }
 
   </script>
