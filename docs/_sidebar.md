@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-03-26 19:04:28
+ * @LastEditTime: 2024-03-27 14:51:03
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -63,3 +63,6 @@
   * [iptables基础与操作](安全/iptables基础与操作.md "iptables 基础与操作")
 * [等保](等保 "等级保护")
 * [国产化](国产化 "国产化")
+* [工具](工具 "工具")
+  * [生产力工具]()
+  * [写文工具](工具/写文工具/写博文神器.md "写文神器")
