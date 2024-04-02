@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-03-28 11:44:25
+ * @LastEditTime: 2024-04-02 17:52:18
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -44,7 +44,10 @@
   * [Docker](云原生/docker/ "docker")
     * [docker入门](云原生/docker/ "入门")
       * [docker一文入门](云原生/docker/docker.md "入门")
+      * [docker安全](云原生/docker/docker安全.md "docker安全")
+      * [docker在线升级](云原生/docker/docker在线升级.md "docker在线升级")
       * [docker开启健康检查](云原生/docker/docker给容器开启健康检查.md "docker给容器开启健康检查")
+      * [docker修改默认存储路径](云原生/docker/docker修改默认存储路径.md "docker修改默认存储路径")
     * [docker进阶](云原生/docker/ "进阶")
       * [Docker Compose](云原生/docker/compose.md)
       * [Docker Swarm](云原生/docker/swarm/swarm入门.md "Docker Swarm")
