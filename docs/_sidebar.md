@@ -42,6 +42,7 @@
 * [CICD](CICD/ "CICD")
   * [jenkins](CICD/jenkins/ "jenkins")
   * [gitlab-runner](CICD/gitlab-runner "gitlab-runner")
+  * [sonarqube10.4破解并容器化](CICD/sonarqube/sonarqube10.4破解并容器化.md "sonarqube10.4破解并容器化")
 * [云原生](云原生)
   * [Docker](云原生/docker/ "docker")
     * [docker入门](云原生/docker/ "入门")
