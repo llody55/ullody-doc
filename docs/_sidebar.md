@@ -9,7 +9,7 @@
 
 <!-- docs/_sidebar.md -->
 
-* [首页](/_sidebar.md)
+* [首页](_sidebar.md)
 * [Linux](Linux/linux.md "最牛逼的Linux入门指南")
   * [命令](Linux/命令/ "命令")
     * [ps](Linux/命令/ps.md "ps")
@@ -28,6 +28,7 @@
   * [Linux系统服务器安全加固](Linux/Linux系统服务器安全加固.md "Linux系统服务器安全加固")
   * [服务器硬件信息获取](Linux/服务器硬件信息获取.md "服务器硬件信息获取")
   * [Linux磁盘性能测试分析](Linux/Linux磁盘性能测试分析.md "Linux磁盘性能测试分析")
+  * [内网穿透工具之(bore)](Linux/内网穿透工具之(bore).md "内网穿透工具之(bore)")
 * [脚本](脚本 "脚本")
   * [shell](脚本/shell "shell")
   * [Python](脚本/python "python")
