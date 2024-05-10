@@ -133,30 +133,104 @@ $ docker-compose up -d
 
 > 访问服务器 `http://IP地址:[映射端口]`，在网页填写配置，完成初始化。
 
-#### 其他
+### 实战：离线部署mysql8
 
-##### 通过环境变量自动配置
+```bash
+vi mysql.yml
+```
 
-kodbox容器支持通过环境变量自动配置。您可以在首次运行时预先配置安装页面上要求的所有内容。要启用自动配置，请通过以下环境变量设置数据库连接。
+```
+version: '3.1'
 
- **MYSQL/MariaDB** :
+services:
+  mysql:
+    image: mysql/mysql-server:8.0.30-1.2.9-server
+    pull_policy: never
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "admin123" 
+      TZ: "Asia/Shanghai"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /data/mysql/mysql-init:/docker-entrypoint-initdb.d # 将包含多个SQL文件的目录映射到容器内
+      - /data/mysql/data:/var/lib/mysql
+      - /data/mysql/logs:/var/log/mysqld
+      - /data/mysql/mysql-files:/var/lib/mysql-files
+      - /data/mysql/conf:/etc/mysql
+    networks:
+      net-test:
+        ipv4_address: 100.100.2.2
+  
+networks:
+  net-test:
+    external: true
+    name: net-test
+```
 
-* `MYSQL_DATABASE` 数据库名称.
-* `MYSQL_USER` 数据库用户.
-* `MYSQL_PASSWORD` 数据库用户密码.
-* `MYSQL_SERVER` 数据库服务地址.
-* `MYSQL_PORT` 数据库端口，默认3306
+> ## 部分解释
+>
+> * pull_policy: never  # 表示禁用镜像拉取，从本地镜像启动。
+> * /data/mysql/mysql-init    # 此目录下存放的是数据库初始化的sql文件，需要包含创建数据库，创建表的一些语法，让容器启动时将默认数据插入数据库。
 
-如果设置了任何值，则在首次运行时不会在安装页面中询问这些值。通过使用数据库类型的所有变量完成配置后，您可以通过设置管理员和密码（仅当您同时设置这两个值时才有效）来配置kodbox实例：
+### 实战：离线部署nacos
 
-* `KODBOX_ADMIN_USER` 管理员用户名，可以不设置，访问网页时自己填.
-* `KODBOX_ADMIN_PASSWORD` 管理员密码，可以不设置，访问网页时自己填.
+```bash
+vi nacos-standlone-mysql.env
+```
 
- **redis/memcached** :
+```bash
+PREFER_HOST_MODE=hostname
+MODE=standalone
+SPRING_DATASOURCE_PLATFORM=mysql
+MYSQL_SERVICE_HOST=mysql
+MYSQL_SERVICE_DB_NAME=nacos
+MYSQL_SERVICE_PORT=3306
+MYSQL_SERVICE_USER=root
+MYSQL_SERVICE_PASSWORD=admin123
+MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+NACOS_AUTH_IDENTITY_KEY=2222
+NACOS_AUTH_IDENTITY_VALUE=2xxx
+NACOS_AUTH_TOKEN=SecretKey012345678901234567890123456789012345678901234567890123456789
+```
 
-* `SESSION_TYPE` 缓存类型，默认redis，仅当配置 `SESSION_HOST`时生效.
-* `SESSION_HOST` 缓存地址.
-* `SESSION_PORT` 缓存端口，默认6379，仅当配置 `SESSION_HOST`时生效.
+
+```bash
+vi nacos.yml
+```
+
+```yaml
+version: '3.1'
+
+services:
+  nacos:
+    image: nacos/nacos-server:v2.2.0-slim
+    pull_policy: never
+    container_name: nacos
+    restart: always
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+      - "9849:9849"
+    env_file:
+      - /data/env/nacos-standlone-mysql.env
+    healthcheck:
+      test: ["CMD", "curl", "-o", "/dev/null", "-s", "-w", "%{http_code}\n", "http://nacos:8848/nacos/"]
+      interval: 30s  # 健康检查的间隔时间
+      timeout: 10s   # 健康检查的超时时间
+      retries: 3     # 健康检查失败后重试次数
+    networks:
+      net-test:
+        ipv4_address: 100.100.2.3
+
+networks:
+  net-test:
+    external: true
+    name: net-test
+```
+
+> * env_file : 从文件中加载环境变量，比使用environment稳定。
 
 ### 常用命令
 

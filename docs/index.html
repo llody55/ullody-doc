@@ -17,6 +17,8 @@
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
   <link rel="stylesheet" href="https://static.llody.top/static/js/vue.css">
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
+  <!--gitalk评论组件-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
   <style>
     /* 加重描述 strong*/
     .markdown-section strong {
@@ -60,6 +62,7 @@
       </div>
     </div>
 </div>
+<div id="gitalk-container"></div>
   <script>
     window.$docsify = {
       name: '<p>Ullody-doc 文档</p>', // 文档标题，会显示在侧边栏顶部
@@ -127,19 +130,19 @@
         successText: {'/' : '已复制'}
       },
       plugins: [
-          function (hook, vm) {                                   
-            var footer = [
-                '<hr/>',
-                '<footer style="text-align: center">',
-                '<span>llody&copy;2024.</span>',
-                '<span> 基于 <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a></span>',
-                ' V' + window.Docsify.version,
-                '</footer>'
-            ].join('');
-              hook.afterEach(function(html) {
-              return html + footer;
-            });
-          }                 
+          // function (hook, vm) {                                   
+          //   var footer = [
+          //       '<hr/>',
+          //       '<footer style="text-align: center">',
+          //       '<span>llody&copy;2024.</span>',
+          //       '<span> 基于 <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a></span>',
+          //       ' V' + window.Docsify.version,
+          //       '</footer>'
+          //   ].join('');
+          //     hook.afterEach(function(html) {
+          //     return html + footer;
+          //   });
+          // }                 
       ],
     }
 
@@ -198,6 +201,20 @@
   <script src="https://static.llody.top/static/js/docsify-plugin-flexible-alerts"></script>
   <!-- 页面点击出现爱心 -->
   <script src="https://static.llody.top/static/js/click_heart.js"></script>
+  <!--gitalk评论组件-->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+      clientID: 'Ov23liGuwVb9c3dOEIdX', // GitHub Application Client ID
+      clientSecret: 'a5008589c585e1f4313bbf305f9a0a2eefebd139', // GitHub Application Client Secret
+      repo: 'https://github.com/llody55/ullody-doc.git',     // 存放评论的仓库
+      owner: 'llody55',          // 仓库的创建者，
+      admin: ['llody55'],        // 如果仓库有多个人可以操作，那么在这里以数组形式写出
+      id: location.pathname,      // 用于标记评论是哪个页面的，确保唯一，并且长度小于50
+      distractionFreeMode: false     // Facebook-like distraction free mode
+    })
+  </script>
   <!-- 看板猫咪 -->
   <script src="https://static.llody.top/static/cat/L2Dwidget.min.js"></script>
   <script type="text/javascript">
