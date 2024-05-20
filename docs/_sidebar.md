@@ -24,6 +24,7 @@
   * [Linux生成随机数密码](Linux/Linux生成随机数密码.md "Linux生成随机数密码")
   * [Linux环境中常用的解压缩命令](Linux/Linux环境中常用的解压缩命令.md "Linux环境中常用的解压缩命令")
   * [Linux系统监控命令](Linux/Linux系统监控命令.md "Linux系统监控命令")
+  * [Linux磁盘检测工具](Linux/Linux磁盘检测工具.md "Linux磁盘检测工具")
   * [Linux账户被锁解救方式](Linux/Linux账户被锁解救方式.md "Linux账户被锁解救方式")
   * [Linux系统服务器安全加固](Linux/Linux系统服务器安全加固.md "Linux系统服务器安全加固")
   * [服务器硬件信息获取](Linux/服务器硬件信息获取.md "服务器硬件信息获取")
