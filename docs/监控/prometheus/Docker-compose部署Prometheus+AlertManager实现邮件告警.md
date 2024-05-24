@@ -1,9 +1,15 @@
+## 准备工作
+
+> 1、系统初始化，包括防火墙，关闭selinux等。参考：[Docker一文入门](https://blog.csdn.net/u012429202/article/details/138669394 "Docker一文入门")
+>
+> 2、安装Docker服务。参考：[Docker一文入门](https://blog.csdn.net/u012429202/article/details/138669394 "Docker一文入门")
+
 ## 实验规划
 
 | 主机IP        | 部署组件                                                                           | 说明 |
 | ------------- | ---------------------------------------------------------------------------------- | ---- |
 | 192.168.1.217 | docker、docker-compose、node-exporter、cadvisor、prometheus、grafana、alertmanager |      |
-| 192.168.1.218 | docker、node-exporter、cadvisor                                                    |      |
+| 192.168.1.218 | docker、docker-compose、node-exporter、cadvisor                                    |      |
 
 ## 创建相关目录
 

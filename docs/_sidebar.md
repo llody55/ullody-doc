@@ -71,6 +71,7 @@
 * [监控](监控)
   * [prometheus](监控/prometheus)
     * [Docker-compose部署Prometheus+AlertManager实现邮件告警](监控/prometheus/Docker-compose部署Prometheus+AlertManager实现邮件告警.md "Docker-compose部署Prometheus+AlertManager实现邮件告警")
+    * [MySQL监控--单机](监控/prometheus/MySQL监控--单机.md "MySQL监控--单机")
 * [云平台](云平台 "云平台")
 * [虚拟化](虚拟化 "虚拟化")
 * [数据库](数据库 "数据库")
