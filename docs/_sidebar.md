@@ -44,6 +44,7 @@
     * [端口探测脚本](脚本/python/端口探测.md "端口探测脚本")
 * [CICD](CICD/ "CICD")
   * [jenkins](CICD/jenkins/ "jenkins")
+    * [Jenkins一文扫盲](CICD/Jenkins/Jenkins一文扫盲.md "Jenkins一文扫盲")
   * [gitlab-runner](CICD/gitlab-runner "gitlab-runner")
   * [sonarqube10.4破解并容器化](CICD/sonarqube/sonarqube10.4破解并容器化.md "sonarqube10.4破解并容器化")
 * [云原生](云原生)
