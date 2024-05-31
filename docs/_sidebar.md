@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-04-03 16:31:36
+ * @LastEditTime: 2024-05-31 13:55:57
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -70,9 +70,14 @@
   * [kubernetes](云原生/kubernetes/ "kubernetes")
     * [办公网络与POD网络互通(方案一)](云原生/kubernetes/办公网络与POD网络互通(方案一).md "办公网络与POD网络互通")
 * [监控](监控)
-  * [prometheus](监控/prometheus)
+  * [prometheus](监控/prometheus "prometheus")
     * [Docker-compose部署Prometheus+AlertManager实现邮件告警](监控/prometheus/Docker-compose部署Prometheus+AlertManager实现邮件告警.md "Docker-compose部署Prometheus+AlertManager实现邮件告警")
     * [MySQL监控--单机](监控/prometheus/MySQL监控--单机.md "MySQL监控--单机")
+    * [Redis监控--单机](监控/prometheus/redis监控--单机.md "Redis监控--单机")
+  * [alertmanager](监控/alertmanager/ "alertmanager")
+    * [Alertmanager实现企业微信机器人webhook告警](监控/alertmanager/Alertmanager实现企业微信机器人webhook告警.md "Alertmanager实现企业微信机器人webhook告警")
+  * [grafana](监控/grafana/ "grafana")
+    * [grafana入门](监控/grafana/grafana入门.md "grafana入门")
 * [云平台](云平台 "云平台")
 * [虚拟化](虚拟化 "虚拟化")
 * [数据库](数据库 "数据库")
