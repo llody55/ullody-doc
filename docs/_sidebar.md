@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-05-31 13:55:57
+ * @LastEditTime: 2024-07-09 10:43:03
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -84,6 +84,9 @@
 * [云平台](云平台 "云平台")
 * [虚拟化](虚拟化 "虚拟化")
 * [数据库](数据库 "数据库")
+  * [MySQL](数据库/MySQL/ "MySQL")
+    * [快速部署MySQL8](数据库/MySQL/快速部署MySQL8.md "快速部署MySQL8")
+    * [MyFlash-MySQL数据回滚工具](数据库/MySQL/MyFlash-MySQL数据回滚工具.md "MyFlash-MySQL数据回滚工具")
 * [日志](日志 "日志")
 * [安全](安全 "安全")
   * [iptables基础与操作](安全/iptables基础与操作.md "iptables 基础与操作")
