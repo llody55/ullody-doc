@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-07-09 10:43:03
+ * @LastEditTime: 2024-08-05 18:05:43
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -88,6 +88,8 @@
     * [快速部署MySQL8](数据库/MySQL/快速部署MySQL8.md "快速部署MySQL8")
     * [MyFlash-MySQL数据回滚工具](数据库/MySQL/MyFlash-MySQL数据回滚工具.md "MyFlash-MySQL数据回滚工具")
 * [日志](日志 "日志")
+  * [ElasticSearch](日志/ElasticSearch/ "ElasticSearch")
+    * [docker-compose进行ElasticSearch8集群部署](日志/ElasticSearch/docker-compose进行ElasticSearch8集群部署.md "docker-compose进行ElasticSearch8集群部署")
 * [安全](安全 "安全")
   * [iptables基础与操作](安全/iptables基础与操作.md "iptables 基础与操作")
 * [等保](等保 "等级保护")
