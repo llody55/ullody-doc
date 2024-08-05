@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-08-05 18:20:11
+ * @LastEditTime: 2024-08-05 19:03:28
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -97,6 +97,8 @@
 * [国产化](国产化 "国产化")
   * [麒麟V10离线安装docker](国产化/麒麟V10离线安装docker.md "麒麟V10离线安装docker")
   * [麒麟V10离线安装containerd](国产化/麒麟V10离线安装containerd.md "麒麟V10离线安装containerd")
+  * [麒麟V10部署rabbitmq集群](国产化/麒麟V10部署rabbitmq集群.md "麒麟V10部署rabbitmq集群")
+  * [麒麟V10使用docker-compose部署ElasticSearch8集群](日志/ElasticSearch/docker-compose进行ElasticSearch8集群部署.md "docker-compose进行ElasticSearch8集群部署")
 * [工具](工具 "工具")
   * [日常工具](工具/日常工具/日常工具.md "日常工具")
   * [写文工具](工具/写文工具/写博文神器.md "写文神器")
