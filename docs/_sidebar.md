@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-08-05 19:31:36
+ * @LastEditTime: 2024-08-23 10:28:30
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -26,6 +26,7 @@
   * [Linux系统监控命令](Linux/Linux系统监控命令.md "Linux系统监控命令")
   * [Linux磁盘检测工具](Linux/Linux磁盘检测工具.md "Linux磁盘检测工具")
   * [Linux账户被锁解救方式](Linux/Linux账户被锁解救方式.md "Linux账户被锁解救方式")
+  * [Linux使用safe-rm防止误删系统文件](Linux/Linux使用safe-rm防止误删系统文件.md "Linux使用safe-rm防止误删系统文件")
   * [Linux系统服务器安全加固](Linux/Linux系统服务器安全加固.md "Linux系统服务器安全加固")
   * [服务器硬件信息获取](Linux/服务器硬件信息获取.md "服务器硬件信息获取")
   * [Linux磁盘性能测试分析](Linux/Linux磁盘性能测试分析.md "Linux磁盘性能测试分析")
@@ -87,6 +88,13 @@
   * [MySQL](数据库/MySQL/ "MySQL")
     * [快速部署MySQL8](数据库/MySQL/快速部署MySQL8.md "快速部署MySQL8")
     * [MyFlash-MySQL数据回滚工具](数据库/MySQL/MyFlash-MySQL数据回滚工具.md "MyFlash-MySQL数据回滚工具")
+    * [ubantu22.04部署mysql8基于鲲鹏920的ARM64架构](数据库/MySQL/ubantu22.04部署mysql8基于鲲鹏920的ARM64架构.md "ubantu22.04部署mysql8基于鲲鹏920的ARM64架构")
+    * [mysql8数据库快速迁移并恢复](数据库/MySQL/mysql8数据库快速迁移并恢复.md "mysql8数据库快速迁移并恢复")
+  * [达梦数据库](数据库/达梦数据库/ "达梦数据库")
+    * [麒麟V10部署达梦数据库8](数据库/达梦数据库/麒麟V10部署达梦数据库8.md "麒麟V10部署达梦数据库8")
+  * [MongoDB](数据库/MongoDB/ "MongoDB")
+  * [Redis](数据库/Redis/ "Redis")
+    * [快速部署单机版redis6](数据库/Redis/快速部署单机版redis6.md "快速部署单机版redis6")
 * [日志](日志 "日志")
   * [ElasticSearch](日志/ElasticSearch/ "ElasticSearch")
     * [docker-compose进行ElasticSearch8集群部署](日志/ElasticSearch/docker-compose进行ElasticSearch8集群部署.md "docker-compose进行ElasticSearch8集群部署")
@@ -97,8 +105,11 @@
 * [国产化](国产化 "国产化")
   * [麒麟V10离线安装docker](国产化/麒麟V10离线安装docker.md "麒麟V10离线安装docker")
   * [麒麟V10离线安装containerd](国产化/麒麟V10离线安装containerd.md "麒麟V10离线安装containerd")
+  * [ARM64部署OPENVPN](国产化/ARM64部署OPENVPN.md "ARM64部署OPENVPN")
   * [ARM64部署rabbitmq集群](国产化/ARM64部署rabbitmq集群.md "ARM64部署rabbitmq集群")
-  * [麒麟V10使用docker-compose部署ElasticSearch8集群](日志/ElasticSearch/docker-compose进行ElasticSearch8集群部署.md "docker-compose进行ElasticSearch8集群部署")
+  * [ARM64使用docker-compose部署ElasticSearch8集群](日志/ElasticSearch/docker-compose进行ElasticSearch8集群部署.md "docker-compose进行ElasticSearch8集群部署")
+  * [麒麟V10部署达梦数据库8](数据库/达梦数据库/麒麟V10部署达梦数据库8.md "麒麟V10部署达梦数据库8")
+  * [ubantu22.04部署mysql8基于鲲鹏920的ARM64架构](数据库/MySQL/ubantu22.04部署mysql8基于鲲鹏920的ARM64架构.md "ubantu22.04部署mysql8基于鲲鹏920的ARM64架构")
 * [工具](工具 "工具")
   * [日常工具](工具/日常工具/日常工具.md "日常工具")
   * [写文工具](工具/写文工具/写博文神器.md "写文神器")
