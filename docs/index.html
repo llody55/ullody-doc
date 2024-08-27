@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Ullody-doc - By llody55 -  个人站点</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"> -->
+   <!-- 浏览器强制刷新 --> 
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="icon" href="https://static.llody.top/images/DM_20240323222423_001_00001.ico">
   <!-- 文件夹样式 -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" /> -->
@@ -28,7 +32,7 @@
     .advertisement {
       position: fixed;
       right: 20px;
-      top: 300px;
+      top: 200px;
       width: 110px;
       box-shadow: -1px 0 2px 0px #c5ebda;
       padding: 10px;
@@ -48,6 +52,229 @@
       color: #25a46a;
       margin-bottom: 10px;
     }
+    /* 弹出文字样式 */
+    .popup {
+      position: fixed;
+      top: -100px;
+      right: 800px;
+      background-color: rgba(0, 0, 0, 0.555);
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      transition: top 0.5s ease-in-out;
+      z-index: 200; /* 显示图层 */
+    }
+
+    .popup p {
+      margin: 0;
+    }
+
+    /* 以下是图标右键点击样式 */
+
+    *{
+      /* 初始化 */
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu-box{
+        /* 固定定位 右下角 */
+        position: fixed;
+        z-index: 9999;
+        bottom: 430px;
+        right: 5px;
+    }
+    /* 菜单按钮 */
+    .menu-button{
+        width: 30px;
+        height: 30px;
+        background-color: #101111;
+        border-radius: 50%;
+        /* 投影 */
+        box-shadow: 0 0 0 4px rgba(13, 13, 14, 0.3);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+        /* 过渡 */
+        transition: 0.2s ease-in;
+        /* margin-left: -60px; 向左移动100px */
+        
+    }
+    .menu-button:hover{
+        background-color: #0f0f0f;
+        box-shadow: 0 0 0 8px rgba(22, 22, 22, 0.3);
+    }
+    .menu-button .line-box{
+        width: 20px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: transform 0.3s ease-out;
+    }
+    /* 菜单按钮图标（三条杠） */
+    .menu-button .line{
+        background-color: #fff;
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+    }
+    /* 前后两条短，中间的长 */
+    .menu-button .line:first-child{
+        width: 50%;
+        /* 设置变换的基点 */
+        transform-origin: right;
+        /* 过渡效果 */
+        transition: transform 0.3s ease-in-out;
+    }
+    .menu-button .line:last-child{
+        width: 50%;
+        align-self: flex-end;
+        transform-origin: left;
+        transition: transform 0.3s ease-in-out;
+    }
+    /* 菜单列表 */
+    .menu-list{
+        width: 130px;
+        height: auto;
+        background-color: rgba(24, 23, 23, 0.644);
+        border-radius: 8px;
+        list-style: none;
+        padding: 6px;
+        box-shadow: 0 0 4px 4px rgba(17, 17, 17, 0.15);
+        position: absolute;
+        right: 10px;
+        bottom: 15px;
+        /* 默认隐藏 */
+        opacity: 0;
+        transform: scale(0);
+        /* 设置变换的基点 */
+        transform-origin: bottom right;
+        /* 过渡效果 */
+        transition: 0.3s ease;
+        /* 过渡延迟 */
+        transition-delay: 0.1s;
+    }
+    /* 菜单项 */
+    .menu-list li{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        color: #e4e4eb;
+        cursor: pointer;
+        position: relative;
+
+    }
+
+
+    /* 菜单项下边框 */
+    .menu-list li::before{
+        content: "";
+        width: calc(100% - 24px);
+        height: 1px;
+        background-color: rgba(7, 7, 7, 0.1);
+        position: absolute;
+        bottom: 0;
+        left: 12px;
+    }
+    /* 最后一项不用下边框 */
+    .menu-list li:last-child::before{
+        display: none;
+    }
+    /* 菜单项图标 */
+    .menu-list .fa{
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* 菜单项文本 */
+    .menu-list span{
+        font-size: 14px;
+        margin-left: 8px;
+    }
+    /* 活动态下的部分样式变化 */
+    /* 三条杠的变化 */
+    .active .line-box{
+        transform: rotate(-45deg);
+    }
+    .active .line-box .line:first-child{
+        transform: rotate(-90deg) translateX(1px);
+    }
+    .active .line-box .line:last-child{
+        transform: rotate(-90deg) translateX(-1px);
+    }
+    /* 菜单列表的变化 */
+    .active .menu-list{
+        opacity: 1;
+        transform: scale(1);
+    }
+    .active .menu-list li{
+        /* 执行动画：动画名 时长 线性 停留在最后一帧 */
+        animation: fade-in-item 0.4s linear forwards;
+    }
+    /* 接下来为每一项设置动画延迟时间 */
+    .active .menu-list li:nth-child(1){
+        animation-delay: 0.1s;
+    }
+    .active .menu-list li:nth-child(2){
+        animation-delay: 0.2s;
+    }
+    .active .menu-list li:nth-child(3){
+        animation-delay: 0.3s;
+    }
+    .active .menu-list li:nth-child(4){
+        animation-delay: 0.4s;
+    }
+
+    /* 定义动画 */
+    @keyframes fade-in-item {
+        100%{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /*鼠标悬停，展示提示信息*/
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px; /* 提示框的宽度 */
+        background-color: rgba(0, 0, 0, 0.7); /* 提示框背景色 */
+        color: #fff; /* 提示框文字颜色 */
+        text-align: center; /* 文本居中 */
+        border-radius: 6px; /* 边角半径 */
+        padding: 5px; /* 内边距 */
+        position: absolute; /* 绝对定位 */
+        z-index: 1; /* 确保在其他元素之上 */
+        bottom: 125%; /* 提示框位置，向上偏移 */
+        left: 50%; /* 水平居中 */
+        margin-left: -60px; /* 向左偏移一半宽度 */
+        opacity: 0; /* 初始隐藏 */
+        transition: opacity 0.3s; /* 渐变效果 */
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible; /* 鼠标悬停时可见 */
+        opacity: 1; /* 鼠标悬停时不透明 */
+    }
+    /* 调整提示框在菜单按钮的显示位置 */
+    .menu-button .tooltiptext {
+        bottom: 150%; /* 调整提示框显示位置 */
+    }
+
 
   </style>
 </head>
@@ -61,7 +288,30 @@
         <img src="https://static.llody.top/images/%E8%BF%90%E7%BB%B4%E5%AE%9E%E8%B7%B5%E5%BD%95.jpg" alt="EnjoyToShare" />
       </div>
     </div>
-</div>
+    <div class="menu-box">
+      <!-- 图标按钮 -->
+      <div class="menu-button tooltip">
+          <div class="line-box">
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+          </div>
+          <span class="tooltiptext">菜单</span>
+      </div>
+      <!-- 菜单列表 -->
+      <div>
+          <ul class="menu-list">
+              <!-- <li><a style="color:rgb(243, 237, 236);" href="https://efficiency.discut.io" target="_blank"></i><span class="tooltip"> 🎁近期动态<span class="tooltiptext">查看近期动态</span></span></a></li>
+              <li><a style="color:rgb(252, 246, 246);" href="#" target="_blank"></i><span class="tooltip"> 🧧赞助支持<span class="tooltiptext">支持我们</span></span></a></li> -->
+              <li><a style="color:rgb(248, 244, 244);" href="./moyu/index.html" target="_blank"></i><span class="tooltip">🌟牛马日历<span class="tooltiptext">查看打工人日历</span></span></a></li>
+          </ul>
+      </div>
+    </div>
+    <!-- 弹出文字代码-->
+    <div class="popup">
+      <p id="popupText"></p>
+  </div>
+  </div>
 <div id="gitalk-container"></div>
   <script>
     window.$docsify = {
@@ -153,6 +403,97 @@
               "觉得本文不错，那就来 GitHub 给个 Star 吧   - by llody55",
               "success"); };
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // 获取弹出框元素
+      var popup = document.querySelector(".popup");
+      var popupText = document.getElementById("popupText");
+
+      // 定义要显示的文字列表
+      var texts = ["📢：主页已更新","🔔：可切换模式风格","😃","😯","🤔","🥳","🥺"];
+      var currentIndex = 0;
+
+      // 更新弹出框文字内容
+      function updatePopupText() {
+          popupText.innerHTML = texts[currentIndex];
+          currentIndex = (currentIndex + 1) % texts.length;
+      }
+
+      // 初始更新文字内容
+      updatePopupText();
+
+      // 弹出框弹入
+      function showPopup() {
+          popup.style.top = "20px";
+      }
+
+      // 弹出框弹出
+      function hidePopup() {
+          popup.style.top = "-100px";
+      }
+
+      // 每隔5秒更新文字内容并弹出
+      setInterval(function() {
+          showPopup();
+          setTimeout(function() {
+              hidePopup();
+          }, 3000); // 弹出时间为3秒
+          updatePopupText(); // 更新文字内容
+      }, 5000); // 设置时间间隔为5秒
+    });
+
+  </script>
+  <!-- 悬浮菜单点击事件 -->
+  <script>
+    // 要操作的元素
+    const menu_box=document.querySelector('.menu-box');
+    const menu_button=document.querySelector('.menu-button');
+
+    // 为菜单按钮绑定点击事件
+    menu_button.addEventListener('click',function(){
+        menu_box.classList.toggle('active');
+    })
+  </script>
+  
+  <!-- 弹窗信息提醒代码开始 -->
+  <script>
+    window.addEventListener('load', function() {
+        var currentTime = new Date().getHours();
+        var greeting;
+        var additionalMessage; // 添加额外的消息
+        if (currentTime < 5) {
+            greeting = "凌晨好！";
+            additionalMessage = "夜深了，注意休息哦。";
+        } else if (currentTime < 8) {
+            greeting = "早上好！";
+            additionalMessage = "祝你有一个美好的一天！";
+        } else if (currentTime < 11) {
+            greeting = "上午好！";
+            additionalMessage = "希望你的上午充实且愉快。";
+        } else if (currentTime < 13) {
+            greeting = "中午好！";
+            additionalMessage = "午餐时间到了，别忘了补充能量！";
+        } else if (currentTime < 18) {
+            greeting = "下午好！";
+            additionalMessage = "下午时光，享受工作或学习吧！";
+        } else if (currentTime < 19) {
+            greeting = "傍晚好！";
+            additionalMessage = "忙碌了一天，休息一下吧。";
+        } else if (currentTime < 24) {
+            greeting = "晚上好！";
+            additionalMessage = "一天即将结束，放松心情。";
+        }
+     
+        layer.msg(greeting + "👏欢迎你的访问！" + additionalMessage);
+    });
+  </script>
+  <!-- 弹窗信息提醒代码结束 -->
+  <script data-no-instant>
+    //选择点击瞬间预加载模式
+    InstantClick.init("mousedown");
+  </script>
+  <script src="https://cdn.staticfile.net/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.net/layer/3.1.1/layer.js"></script>
   <!-- Docsify v4 -->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <!-- 一键复制插件 -->
