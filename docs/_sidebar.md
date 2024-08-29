@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-08-23 10:28:30
+ * @LastEditTime: 2024-08-29 17:44:05
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -43,6 +43,8 @@
       * [文件上传下载](脚本/python/python操作ssh/文件上传下载.md "文件上传下载")
     * [密码生成脚本](脚本/python/密码生成脚本.md "密码生成脚本")
     * [端口探测脚本](脚本/python/端口探测.md "端口探测脚本")
+    * [探测URL地址状态](脚本/python/探测URL地址状态.md "探测URL地址状态")
+
 * [CICD](CICD/ "CICD")
   * [jenkins](CICD/jenkins/ "jenkins")
     * [Jenkins一文扫盲](CICD/Jenkins/Jenkins一文扫盲.md "Jenkins一文扫盲")
@@ -69,7 +71,11 @@
     * [nerdctl](云原生/Containerd/nerdctl管理Containerd.md "Containerd")
     * [Containerd修改默认存储路径](云原生/Containerd/Containerd修改默认存储路径.md "Containerd")
   * [kubernetes](云原生/kubernetes/ "kubernetes")
+    * [基础](云原生/kubernetes/基础/ "基础")
+      * [Kubernetes基础简介](云原生/kubernetes/基础/Kubernetes基础简介.md "Kubernetes基础简介")
     * [办公网络与POD网络互通(方案一)](云原生/kubernetes/办公网络与POD网络互通(方案一).md "办公网络与POD网络互通")
+  * [buildah](云原生/buildah/ "buildah")
+    * [使用buildah构建镜像实践](云原生/buildah/使用buildah构建镜像实践.md "使用buildah构建镜像实践")
 * [监控](监控)
   * [prometheus](监控/prometheus "prometheus")
     * [Docker-compose部署Prometheus+AlertManager实现邮件告警](监控/prometheus/Docker-compose部署Prometheus+AlertManager实现邮件告警.md "Docker-compose部署Prometheus+AlertManager实现邮件告警")
@@ -90,6 +96,8 @@
     * [MyFlash-MySQL数据回滚工具](数据库/MySQL/MyFlash-MySQL数据回滚工具.md "MyFlash-MySQL数据回滚工具")
     * [ubantu22.04部署mysql8基于鲲鹏920的ARM64架构](数据库/MySQL/ubantu22.04部署mysql8基于鲲鹏920的ARM64架构.md "ubantu22.04部署mysql8基于鲲鹏920的ARM64架构")
     * [mysql8数据库快速迁移并恢复](数据库/MySQL/mysql8数据库快速迁移并恢复.md "mysql8数据库快速迁移并恢复")
+    * [MYSQL最朴素的监控方式](数据库/MySQL/MYSQL最朴素的监控方式.md "MYSQL最朴素的监控方式")
+    * [MYSQL主从同步原理](数据库/MySQL/MYSQL主从同步原理.md "MYSQL主从同步原理")
   * [达梦数据库](数据库/达梦数据库/ "达梦数据库")
     * [麒麟V10部署达梦数据库8](数据库/达梦数据库/麒麟V10部署达梦数据库8.md "麒麟V10部署达梦数据库8")
   * [MongoDB](数据库/MongoDB/ "MongoDB")
@@ -101,6 +109,7 @@
 * [安全](安全 "安全")
   * [iptables基础与操作](安全/iptables基础与操作.md "iptables 基础与操作")
   * [Centos7升级9.8p1处理方案](安全/Centos7升级9.8p1处理方案.md "Centos7升级9.8p1处理方案")
+  * [Ubuntu防火墙UFW简介](安全/Ubuntu防火墙UFW简介.md "Ubuntu防火墙UFW简介")
 * [等保](等保 "等级保护")
 * [国产化](国产化 "国产化")
   * [麒麟V10离线安装docker](国产化/麒麟V10离线安装docker.md "麒麟V10离线安装docker")

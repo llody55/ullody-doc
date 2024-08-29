@@ -62,6 +62,17 @@ iptables -F NEW_CHAIN
 iptables -X NEW_CHAIN
 ```
 
+### 负载平衡
+
+> 可以利用 iptables 的 **-m nth** 扩展，及其参数（–counter 0 –every 3 –packet x），进行 DNAT 路由设置（-A PREROUTING -j DNAT –to-destination），从而将负载平均分配给 3 台服务器：
+
+```bash
+iptables -A PREROUTING -i eth0 -p tcp --dport 443 -m state --state NEW -m nth --counter 0 --every 3 --packet 0 -j DNAT --to-destination 192.168.1.101:443
+iptables -A PREROUTING -i eth0 -p tcp --dport 443 -m state --state NEW -m nth --counter 0 --every 3 --packet 1 -j DNAT --to-destination 192.168.1.102:443
+iptables -A PREROUTING -i eth0 -p tcp --dport 443 -m state --state NEW -m nth --counter 0 --every 3 --packet 2 -j DNAT --to-destination 192.168.1.103:443
+
+```
+
 ### 查看统计信息
 
 ```bash
