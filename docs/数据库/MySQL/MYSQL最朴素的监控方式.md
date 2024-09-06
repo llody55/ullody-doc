@@ -109,16 +109,23 @@ show status like 'Innodb_row_lock_waits';
 
 ### SQL
 
-> * 查看 mysql 开关是否打开：show variables like ‘slow_query_log’，ON 为开启状态，如果为 OFF，set global slow_query_log=1 进行开启
-> * 查看 mysql 阈值：show variables like ‘long_query_time’，根据页面传递阈值参数，修改阈值 set global long_query_time=0.1
-> * 查看 mysql 慢 sql 目录：show variables like ‘slow_query_log_file’
-> * 格式化慢 sql 日志：mysqldumpslow -s at -t 10 /export/data/mysql/log/slow.log
->
-> 注：此语句通过 jdbc 执行不了，属于命令行执行。
->
-> 意思为：显示出耗时最长的 10 个 SQL 语句执行信息，10 可以修改为 TOP 个数。显示的信息为：执行次数、平均执行时间、SQL 语句
->
-> 备注：当 mysqldumpslow 命令执行失败时，将慢日志同步到本地进行格式化处理。
+```bash
+# 查看 mysql 开关是否打开
+show variables like 'slow_query_log';# ON 为开启状态，如果为 OFF，set global slow_query_log=1 进行开启
+# 查看 mysql 阈值
+show variables like 'long_query_time';# 根据页面传递阈值参数，修改阈值 set global long_query_time=0.1
+# 查看 mysql 慢 sql 目录
+show variables like 'slow_query_log_file';
+# 格式化慢 sql 日志 -- 命令行工具
+mysqldumpslow -s at -t 10 /export/data/mysql/log/slow.log
+
+# 注：此语句通过 jdbc 执行不了，属于命令行执行。
+
+# 意思为：显示出耗时最长的 10 个 SQL 语句执行信息，10 可以修改为 TOP 个数。显示的信息为：执行次数、平均执行时间、SQL 语句
+
+# 备注：当 mysqldumpslow 命令执行失败时，将慢日志同步到本地进行格式化处理。
+
+```
 
 ### statement
 
@@ -137,7 +144,7 @@ show status like 'Innodb_row_lock_waits';
 - 总吞吐量：Bytes_sent+Bytes_received;
 ```
 
-### 数据库参数（serverconfig）
+### MySQL 当前的配置参数（serverconfig）
 
 ```bash
 show variables;
@@ -166,3 +173,187 @@ mysqldumpslow -s t -t 3 /var/lib/mysql/alvin-slow.log
 ```
 
 > 注意：使用 mysqldumpslow 的分析结果不会显示具体完整的 sql 语句，只会显示 sql 的组成结构；
+
+#### 查看慢日志
+
+```sql
+SELECT 
+    start_time AS '开始时间', 
+    query_time AS '查询时间（秒）', 
+    lock_time AS '锁定时间（秒）', 
+    rows_sent AS '发送的行数', 
+    sql_text AS 'SQL语句' 
+FROM 
+    mysql.slow_log 
+ORDER BY 
+    start_time DESC 
+LIMIT 10;
+
+```
+
+### 数据库相关SQL
+
+#### 查看数据大小
+
+```sql
+SELECT
+	table_schema AS '数据库',
+	sum( table_rows ) AS '记录数',
+        COUNT(*) AS '表数量',
+	sum(
+	TRUNCATE ( data_length / 1024 / 1024, 2 )) AS '数据容量(MB)',
+	sum(
+	TRUNCATE ( index_length / 1024 / 1024, 2 )) AS '索引容量(MB)' 
+FROM
+	information_schema.TABLES 
+GROUP BY
+	table_schema 
+ORDER BY
+	sum( data_length ) DESC,
+	sum( index_length ) DESC;
+```
+
+> 查看所有数据库的大小，索引等信息。
+
+#### 查看当前正在运行的查询
+
+```sql
+SELECT 
+    id AS '连接ID', 
+    user AS '用户', 
+    host AS '主机', 
+    db AS '数据库', 
+    command AS '命令', 
+    time AS '执行时间（秒）', 
+    state AS '状态', 
+    info AS '查询' 
+FROM 
+    information_schema.PROCESSLIST 
+ORDER BY 
+    time DESC;
+
+```
+
+#### 查看表的存储引擎和行格式
+
+```sql
+SELECT
+    table_schema AS '数据库',
+    table_name AS '表名',
+    engine AS '存储引擎',
+    row_format AS '行格式',
+    table_rows AS '记录数',
+    data_length AS '数据大小',
+    index_length AS '索引大小'
+FROM
+    information_schema.TABLES
+WHERE 
+    table_schema NOT IN ('information_schema', 'performance_schema', 'mysql', 'sys')
+ORDER BY 
+    data_length DESC;
+
+```
+
+#### 查看用户权限
+
+```sql
+--  查看数据库账户信息
+SELECT 
+    user AS '用户', 
+    host AS '主机', 
+    authentication_string AS '认证方式', 
+    password_last_changed AS '密码最后修改时间',
+    account_locked AS '账号锁定状态'
+FROM 
+    mysql.user;
+
+-- 查看账户详细权限
+SELECT 
+    GRANTEE AS '用户',
+    PRIVILEGE_TYPE AS '权限类型',
+    IS_GRANTABLE AS '是否可授予'
+FROM 
+    information_schema.USER_PRIVILEGES;
+
+-- 获取指定用户权限详细如：root
+SHOW GRANTS FOR 'root'@'%';
+
+```
+
+#### 查看数据库的事务状态
+
+```sql
+-- 活动的事务
+SELECT 
+    trx_id AS '事务ID',
+    trx_state AS '事务状态',
+    trx_started AS '事务开始时间',
+    trx_requested_lock_id AS '请求锁ID',
+    trx_wait_started AS '等待开始时间',
+    trx_weight AS '事务权重',
+    trx_mysql_thread_id AS 'MySQL线程ID',
+    trx_query AS '事务查询'
+FROM 
+    information_schema.INNODB_TRX
+ORDER BY 
+    trx_started DESC;
+
+-- 锁定的事务
+SELECT 
+    t.trx_id AS '事务ID',
+    t.trx_state AS '事务状态',
+    t.trx_started AS '事务开始时间',
+    t.trx_mysql_thread_id AS '线程ID',
+    l.LOCK_MODE AS '锁模式',
+    l.LOCK_TYPE AS '锁类型',
+    l.OBJECT_SCHEMA AS '锁定的数据库',
+    l.OBJECT_NAME AS '锁定的表',
+    l.INDEX_NAME AS '锁定的索引',
+    l.LOCK_STATUS AS '锁状态'
+FROM 
+    information_schema.INNODB_TRX t
+JOIN 
+    performance_schema.data_locks l ON t.trx_mysql_thread_id = l.ENGINE_TRANSACTION_ID
+ORDER BY 
+    t.trx_started DESC;
+
+```
+
+#### 查看表的碎片情况
+
+```bash
+SELECT 
+    table_schema AS '数据库', 
+    table_name AS '表名', 
+    ROUND(data_length / 1024 / 1024, 2) AS '数据大小(MB)', 
+    ROUND(index_length / 1024 / 1024, 2) AS '索引大小(MB)', 
+    ROUND((data_length + index_length) / 1024 / 1024, 2) AS '总大小(MB)', 
+    ROUND(data_free / 1024 / 1024, 2) AS '可回收空间(MB)' 
+FROM 
+    information_schema.TABLES 
+WHERE 
+    data_free > 0 
+ORDER BY 
+    data_free DESC;
+
+```
+
+#### 查看数据库的锁情况
+
+```sql
+SELECT 
+    trx_id AS '事务ID',
+    trx_state AS '事务状态',
+    trx_started AS '事务开始时间',
+    trx_requested_lock_id AS '请求锁ID',
+    trx_wait_started AS '等待开始时间',
+    trx_weight AS '事务权重',
+    trx_mysql_thread_id AS 'MySQL线程ID'
+FROM 
+    information_schema.INNODB_TRX
+ORDER BY 
+    trx_started DESC;
+
+```
+
+> 确保启用了 `performance_schema：SHOW VARIABLES LIKE 'performance_schema';`

@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-08-29 17:44:05
+ * @LastEditTime: 2024-09-06 14:31:36
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -73,7 +73,11 @@
   * [kubernetes](云原生/kubernetes/ "kubernetes")
     * [基础](云原生/kubernetes/基础/ "基础")
       * [Kubernetes基础简介](云原生/kubernetes/基础/Kubernetes基础简介.md "Kubernetes基础简介")
-    * [办公网络与POD网络互通(方案一)](云原生/kubernetes/办公网络与POD网络互通(方案一).md "办公网络与POD网络互通")
+    * [实践](云原生/kubernetes/实践/ "实践")
+      * [鲲鹏920(ARM64) K8S1.24.9 ubantu22.04移植指南](云原生/kubernetes/集群部署/kk/kk部署K8S1.24.md "鲲鹏920(ARM64) K8S1.24.9 ubantu22.04移植指南")
+      * [K8S1.24.9部署metrics-server](云原生/kubernetes/metrics-server部署文档.md "K8S1.24.9部署metrics-server")
+      * [ubantu22.04部署NFS](存储/NFS/ubantu22.04部署NFS.md "ubantu22.04部署NFS")
+      * [办公网络与POD网络互通(方案一)](云原生/kubernetes/办公网络与POD网络互通(方案一).md "办公网络与POD网络互通")
   * [buildah](云原生/buildah/ "buildah")
     * [使用buildah构建镜像实践](云原生/buildah/使用buildah构建镜像实践.md "使用buildah构建镜像实践")
 * [监控](监控)
@@ -98,6 +102,7 @@
     * [mysql8数据库快速迁移并恢复](数据库/MySQL/mysql8数据库快速迁移并恢复.md "mysql8数据库快速迁移并恢复")
     * [MYSQL最朴素的监控方式](数据库/MySQL/MYSQL最朴素的监控方式.md "MYSQL最朴素的监控方式")
     * [MYSQL主从同步原理](数据库/MySQL/MYSQL主从同步原理.md "MYSQL主从同步原理")
+    * [K8S部署数据库审计平台Yearning3.1.8](数据库/MySQL/K8S部署数据库审计平台Yearning3.1.8.md "K8S部署数据库审计平台Yearning3.1.8")
   * [达梦数据库](数据库/达梦数据库/ "达梦数据库")
     * [麒麟V10部署达梦数据库8](数据库/达梦数据库/麒麟V10部署达梦数据库8.md "麒麟V10部署达梦数据库8")
   * [MongoDB](数据库/MongoDB/ "MongoDB")
@@ -119,6 +124,9 @@
   * [ARM64使用docker-compose部署ElasticSearch8集群](日志/ElasticSearch/docker-compose进行ElasticSearch8集群部署.md "docker-compose进行ElasticSearch8集群部署")
   * [麒麟V10部署达梦数据库8](数据库/达梦数据库/麒麟V10部署达梦数据库8.md "麒麟V10部署达梦数据库8")
   * [ubantu22.04部署mysql8基于鲲鹏920的ARM64架构](数据库/MySQL/ubantu22.04部署mysql8基于鲲鹏920的ARM64架构.md "ubantu22.04部署mysql8基于鲲鹏920的ARM64架构")
+  * [鲲鹏920(ARM64) K8S1.24.9 ubantu22.04移植指南](云原生/kubernetes/集群部署/kk/kk部署K8S1.24.md "鲲鹏920(ARM64) K8S1.24.9 ubantu22.04移植指南")
+  * [K8S1.24.9部署metrics-server](云原生/kubernetes/metrics-server部署文档.md "K8S1.24.9部署metrics-server")
+  * [K8S部署数据库审计平台Yearning3.1.8](数据库/MySQL/K8S部署数据库审计平台Yearning3.1.8.md "K8S部署数据库审计平台Yearning3.1.8")
 * [工具](工具 "工具")
   * [日常工具](工具/日常工具/日常工具.md "日常工具")
   * [写文工具](工具/写文工具/写博文神器.md "写文神器")

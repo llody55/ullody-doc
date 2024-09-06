@@ -23,6 +23,7 @@
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
   <!--gitalk评论组件-->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <style>
     /* 加重描述 strong*/
     .markdown-section strong {
@@ -331,6 +332,8 @@
       notFoundPage: true,  //在找不到指定页面时加载_404.md
       onlyCover: true, //只在访问主页时加载封面。
       coverpage: true,
+      // 开启busuanzi
+      busuanzi: true,
       count:{
         countable:true,
         fontsize:'0.9em',
@@ -380,19 +383,20 @@
         successText: {'/' : '已复制'}
       },
       plugins: [
-          // function (hook, vm) {                                   
-          //   var footer = [
-          //       '<hr/>',
-          //       '<footer style="text-align: center">',
-          //       '<span>llody&copy;2024.</span>',
-          //       '<span> 基于 <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a></span>',
-          //       ' V' + window.Docsify.version,
-          //       '</footer>'
-          //   ].join('');
-          //     hook.afterEach(function(html) {
-          //     return html + footer;
-          //   });
-          // }                 
+          function (hook, vm) {                                   
+            var footer = [
+                '<hr/>',
+                '<footer style="text-align: center">',
+                '<span id="sitetime"></span>',
+                '</br><span id="busuanzi_container_site_pv" style="display:none">👀 本站总访问量：<span id="busuanzi_value_site_pv"></span> 次</span><span id="busuanzi_container_site_uv" style="display:none">| 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人</span>',
+                // '<span> 基于 <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a></span>',
+                // ' V' + window.Docsify.version,
+                '</footer>'
+            ].join('');
+              hook.afterEach(function(html) {
+              return html + footer;
+            });
+          }                 
       ],
     }
 
@@ -492,6 +496,42 @@
     //选择点击瞬间预加载模式
     InstantClick.init("mousedown");
   </script>
+  <!-- 运行时间统计 -->
+  <script language=javascript>
+    function siteTime() {
+      window.setTimeout("siteTime()", 1000);
+      var seconds = 1000;
+      var minutes = seconds * 60;
+      var hours = minutes * 60;
+      var days = hours * 24;
+      var years = days * 365;
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDate = today.getDate();
+      var todayHour = today.getHours();
+      var todayMinute = today.getMinutes();
+      var todaySecond = today.getSeconds();
+      /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+      year - 作为date对象的年份，为4位年份值
+      month - 0-11之间的整数，做为date对象的月份
+      day - 1-31之间的整数，做为date对象的天数
+      hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+      minutes - 0-59之间的整数，做为date对象的分钟数
+      seconds - 0-59之间的整数，做为date对象的秒数
+      microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+      var t1 = Date.UTC(2024, 03, 17, 00, 00, 00); //北京时间2024-03-17 00:00:00
+      var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+      var diff = t2 - t1;
+      var diffYears = Math.floor(diff / years);
+      var diffDays = Math.floor((diff / days) - diffYears * 365);
+      var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+      var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+      var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+      document.getElementById("sitetime").innerHTML = " 本网站已运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒 ";
+    }
+    siteTime();
+  </script>
   <script src="https://cdn.staticfile.net/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.net/layer/3.1.1/layer.js"></script>
   <!-- Docsify v4 -->
@@ -537,7 +577,8 @@
   <!-- 复制提醒 -->
   <script src="https://static.llody.top/static/js/sweetalert.min.js"></script>
   <!-- 访问量统计 -->
-  <script async src="https://static.llody.top/static/js/busuanzi.pure.mini.js"></script>
+  <script src="./static/js/busuanzi.pure.mini.js"></script>
+  <!-- <script src="https://static.llody.top/static/js/busuanzi.pure.mini.js"></script> -->
   <!-- 提示样式 -->
   <script src="https://static.llody.top/static/js/docsify-plugin-flexible-alerts"></script>
   <!-- 页面点击出现爱心 -->
