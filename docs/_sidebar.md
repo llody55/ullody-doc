@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-09-06 14:31:36
+ * @LastEditTime: 2024-09-14 17:24:22
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -65,6 +65,8 @@
       * [常用Dockerfile](云原生/docker/高阶应用/常用Dockerfile "常用Dockerfile")
         * [busybox-tools](云原生/docker/高阶应用/busybox-tools.md "busybox-tools")
         * [nginx](云原生/docker/高阶应用/nginx.md "nginx")
+    * [docker实践](云原生/docker/实践 "实践")
+      * [部署jumpserver](安全/Docker-compose部署jumpserver.md "部署jumpserver")
     * [多主机组网](云原生/Docker/多主机组网/实验文档.md "多主机组网")
     * [办公网络与docker内网网络互通(方案一)](云原生/docker/办公网络与docker内网网络互通(方案一).md "办公网络与docker内网网络互通(方案一)")
   * [Containerd](云原生/Containerd/ "Containerd")
@@ -115,6 +117,7 @@
   * [iptables基础与操作](安全/iptables基础与操作.md "iptables 基础与操作")
   * [Centos7升级9.8p1处理方案](安全/Centos7升级9.8p1处理方案.md "Centos7升级9.8p1处理方案")
   * [Ubuntu防火墙UFW简介](安全/Ubuntu防火墙UFW简介.md "Ubuntu防火墙UFW简介")
+  * [部署jumpserver](安全/Docker-compose部署jumpserver.md "部署jumpserver")
 * [等保](等保 "等级保护")
 * [国产化](国产化 "国产化")
   * [麒麟V10离线安装docker](国产化/麒麟V10离线安装docker.md "麒麟V10离线安装docker")
