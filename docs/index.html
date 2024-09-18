@@ -295,6 +295,7 @@
         <!-- <p style="font-size: 12px;">一起学</p> -->
         <img src="https://static.llody.top/images/%E8%BF%90%E7%BB%B4%E5%AE%9E%E8%B7%B5%E5%BD%95.jpg" alt="EnjoyToShare" />
       </div>
+    </br> 当前共有 <span id="visitor-count" style="color: #16b777;font-size: 16px;">0</span> 位道友在线！
     </div>
     <div class="menu-box">
       <!-- 图标按钮 -->
@@ -396,7 +397,7 @@
                 '<footer style="text-align: center">',
                 '<span id="sitetime"></span>',
                 '</br><span id="busuanzi_container_site_pv" style="display:none">👀 本站总访问量：<span id="busuanzi_value_site_pv"></span> 次</span><span id="busuanzi_container_site_uv" style="display:none">| 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人</span>',
-                '</br> 当前共有 <span id="visitor-count" style="color: #16b777;font-size: 16px;">0</span> 位道友在线！',
+                '',
                 // '<span> 基于 <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a></span>',
                 // ' V' + window.Docsify.version,
                 '</footer>'
@@ -499,6 +500,15 @@
         layer.msg(greeting + "👏欢迎你的访问！" + additionalMessage);
     });
   </script>
+  <script>
+    window.onload = function() {
+      // 初始化Oneline组件，传入一个唯一的ID
+      new Oneline("using-a-z-and-0-9-to-make-a-unique-id-for-your-website").on("OnelineUpdate", (e) => {
+          // 更新页面上的在线用户数
+          document.querySelector("#visitor-count").innerText = e.detail.count;
+      });
+    };
+  </script>
   <!-- 弹窗信息提醒代码结束 -->
   <script data-no-instant>
     //选择点击瞬间预加载模式
@@ -542,8 +552,8 @@
   </script>
   <script src="https://cdn.staticfile.net/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.net/layer/3.1.1/layer.js"></script>
-  <!-- 当前在线人数 -->
-  <script src="../docs/static/js/online_visitor.js"></script>
+  <!--统计在线人数-->
+  <script src="../docs/static/js/oneline.js"></script>
   <!-- Docsify v4 -->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <!-- 一键复制插件 -->
