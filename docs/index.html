@@ -500,15 +500,6 @@
         layer.msg(greeting + "👏欢迎你的访问！" + additionalMessage);
     });
   </script>
-  <script>
-    window.onload = function() {
-      // 初始化Oneline组件，传入一个唯一的ID
-      new Oneline("using-a-z-and-0-9-to-make-a-unique-id-for-your-website").on("OnelineUpdate", (e) => {
-          // 更新页面上的在线用户数
-          document.querySelector("#visitor-count").innerText = e.detail.count;
-      });
-    };
-  </script>
   <!-- 弹窗信息提醒代码结束 -->
   <script data-no-instant>
     //选择点击瞬间预加载模式
@@ -554,6 +545,7 @@
   <script src="https://cdn.staticfile.net/layer/3.1.1/layer.js"></script>
   <!--统计在线人数-->
   <script src="https://cdn.jsdelivr.net/gh/ezshine/oneline.js@1.0.0/oneline.js"></script>
+  <script src="../docs/static/js/visitor_count.js" ></script>
   <!-- Docsify v4 -->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <!-- 一键复制插件 -->
