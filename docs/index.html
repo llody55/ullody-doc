@@ -276,6 +276,13 @@
         bottom: 150%; /* 调整提示框显示位置 */
     }
 
+    /* 当前在线人数 */
+    /* #visitor-count {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #4a4a4a;
+    } */
+
 
   </style>
 </head>
@@ -389,6 +396,7 @@
                 '<footer style="text-align: center">',
                 '<span id="sitetime"></span>',
                 '</br><span id="busuanzi_container_site_pv" style="display:none">👀 本站总访问量：<span id="busuanzi_value_site_pv"></span> 次</span><span id="busuanzi_container_site_uv" style="display:none">| 🚴‍♂️ 本站总访客数：<span id="busuanzi_value_site_uv"></span> 人</span>',
+                '</br> 当前共有 <span id="visitor-count" style="color: #16b777;font-size: 16px;">0</span> 位道友在线！',
                 // '<span> 基于 <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a></span>',
                 // ' V' + window.Docsify.version,
                 '</footer>'
@@ -534,11 +542,13 @@
   </script>
   <script src="https://cdn.staticfile.net/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.net/layer/3.1.1/layer.js"></script>
+  <!-- 当前在线人数 -->
+  <script src="../docs/static/js/online_visitor.js"></script>
   <!-- Docsify v4 -->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4"></script> -->
   <!-- 一键复制插件 -->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script> -->
-    <!-- 代码高亮 -->
+  <!-- 代码高亮 -->
   <script src="https://static.llody.top/static/js/prism-bash.min.js"></script>
   <script src="https://static.llody.top/static/js/prism-c.min.js"></script>
   <script src="https://static.llody.top/static/js/prism-json.min.js"></script>
