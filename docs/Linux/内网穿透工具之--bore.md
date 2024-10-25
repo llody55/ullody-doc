@@ -47,7 +47,6 @@ fe80::de97:8d40:79f8:9918%ens33 192.168.3.224 172.17.0.1
 > ./bore server --min-port 8081 --max-port 8082
 > ```
 
-
 ### 客户端
 
 ```bash
@@ -101,6 +100,31 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 fe80::909d:7cd6:713f:b235%ens33 192.168.3.220
 
 ```
+
+## docker一键启用
+
+### 服务端
+
+```bash
+# docker run -it --rm --network host docker.llody.cn/ekzhang/bore server
+Unable to find image 'docker.llody.cn/ekzhang/bore:latest' locally
+latest: Pulling from ekzhang/bore
+Digest: sha256:9ba69617a996503488c07082742e5c2691b7c4615eef3146b23e8be4d6fc09b9
+Status: Downloaded newer image for docker.llody.cn/ekzhang/bore:latest
+2024-10-25T02:12:02.876554Z  INFO bore_cli::server: server listening addr=0.0.0.0:7835
+```
+
+> 将**7835**暴露到公网，以便于客户端连接
+
+### 服务端
+
+```bash
+docker run -it --rm --network host docker.llody.cn/ekzhang/bore local 本地端口 --to 公网IP
+# 示例
+docker run -it --rm --network host docker.llody.cn/ekzhang/bore local 3306 --to 222.12.0.1  
+```
+
+> 连接成功会返回一个公网访问的IP和端口，这样就将3306端口穿透到了公网进行访问，绕过了防火墙。
 
 ## 传送门地址
 
