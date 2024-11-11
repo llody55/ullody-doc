@@ -2,9 +2,9 @@
 
 | 主机IP          | 系统               | ES版本               | CPU架构 | 用户名  | 密码         |
 | --------------- | ------------------ | -------------------- | ------- | ------- | ------------ |
-| 192.168.174.18  | Ubuntu 22.04.4 LTS | elasticsearch:7.17.4 | ARM64   | elastic | llodyi4TMmZD |
-| 192.168.174.218 | Ubuntu 22.04.4 LTS | elasticsearch:7.17.4 | ARM64   |         |              |
-| 192.168.174.112 | Ubuntu 22.04.4 LTS | elasticsearch:7.17.4 | ARM64   |         |              |
+| 192.168.174.18  | Ubuntu 22.04.4 LTS | elasticsearch:8.10.4 | ARM64   | elastic | llodyi4TMmZD |
+| 192.168.174.218 | Ubuntu 22.04.4 LTS | elasticsearch:8.10.4 | ARM64   |         |              |
+| 192.168.174.112 | Ubuntu 22.04.4 LTS | elasticsearch:8.10.4 | ARM64   |         |              |
 
 ## 概念：
 
@@ -725,7 +725,6 @@ epoch      timestamp cluster     status node.total node.data shards pri relo ini
 1722842322 07:18:42  es-clusters green           3         3      2   1    0    0        0             0                  -                100.0%
 ```
 
->
 > Elasticsearch 集群已经成功搭建并且正在正常运行。具体来看：
 >
 > * **Cluster Status** : `green` 表示集群的状态良好，所有主分片和副本分片都正常分配。
@@ -783,16 +782,13 @@ docker run -d --restart=always --name kibana -p5601:5601 -v /lgdata/kibana/kiban
 
 > 登录kibana http://192.168.174.18:5601，用户名为elasic，密码为之前设置密码。
 
-
 #### 登录
 
 ![1722845600983](https://static.llody.top/ullody-doc/images/1722845600983.png)
 
-
 #### 集群状态
 
 ![1722846240030](https://static.llody.top/ullody-doc/images/1722846240030.png)
-
 
 #### 部分接口
 
