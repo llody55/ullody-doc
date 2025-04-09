@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2025-04-09 16:56:38
+ * @LastEditTime: 2025-04-09 17:24:21
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -154,6 +154,5 @@
   * [日常工具](工具/日常工具/日常工具.md "日常工具")
   * [写文工具](工具/写文工具/写博文神器.md "写文神器")
 
-**友链**
----
-- [![Github](static/images/github.svg)Github](https://github.com/llody55)
+* 友链
+  - [![Github](static/images/github.svg)Github](https://github.com/llody55)
