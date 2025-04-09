@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2024-09-14 17:24:22
+ * @LastEditTime: 2025-04-09 16:56:38
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -10,7 +10,11 @@
 <!-- docs/_sidebar.md -->
 
 * [首页](_sidebar.md)
+* [感悟](感悟 "感悟")
+
+  * [运维的自我修养](感悟/运维的自我修养.md "运维的自我修养")
 * [Linux](Linux/linux.md "最牛逼的Linux入门指南")
+
   * [命令](Linux/命令/ "命令")
     * [ps](Linux/命令/ps.md "ps")
     * [pidstat](Linux/命令/pidstat.md "pidstat")
@@ -32,7 +36,9 @@
   * [Linux磁盘性能测试分析](Linux/Linux磁盘性能测试分析.md "Linux磁盘性能测试分析")
   * [内网穿透工具之--bore](Linux/内网穿透工具之--bore.md "内网穿透工具之--bore")
   * [Linux抓包工具之--termshark](Linux/Linux抓包工具之--termshark.md "Linux抓包工具之--termshark")
+  * [中国开源镜像站](Linux/中国开源镜像站.md "中国开源镜像站")
 * [脚本](脚本 "脚本")
+
   * [shell](脚本/shell "shell")
   * [Python](脚本/python "python")
     * [python操作docker](脚本/python/python操作docker)
@@ -41,16 +47,19 @@
       * [mysql死锁处理脚本](脚本/python/python操作mysql/mysql死锁处理脚本.md "mysql死锁处理脚本")
     * [python操作ssh](脚本/python/python操作ssh)
       * [文件上传下载](脚本/python/python操作ssh/文件上传下载.md "文件上传下载")
+    * [python脚本加密](脚本/python/python脚本加密)
+      * [PyArmor详细说明文档](脚本/python/python脚本加密/PyArmor详细说明文档.md "PyArmor详细说明文档")
     * [密码生成脚本](脚本/python/密码生成脚本.md "密码生成脚本")
     * [端口探测脚本](脚本/python/端口探测.md "端口探测脚本")
     * [探测URL地址状态](脚本/python/探测URL地址状态.md "探测URL地址状态")
-
 * [CICD](CICD/ "CICD")
+
   * [jenkins](CICD/jenkins/ "jenkins")
     * [Jenkins一文扫盲](CICD/Jenkins/Jenkins一文扫盲.md "Jenkins一文扫盲")
   * [gitlab-runner](CICD/gitlab-runner "gitlab-runner")
   * [sonarqube10.4破解并容器化](CICD/sonarqube/sonarqube10.4破解并容器化.md "sonarqube10.4破解并容器化")
 * [云原生](云原生)
+
   * [Docker](云原生/docker/ "docker")
     * [docker入门](云原生/docker/ "入门")
       * [docker一文入门](云原生/docker/docker.md "入门")
@@ -83,6 +92,7 @@
   * [buildah](云原生/buildah/ "buildah")
     * [使用buildah构建镜像实践](云原生/buildah/使用buildah构建镜像实践.md "使用buildah构建镜像实践")
 * [监控](监控)
+
   * [prometheus](监控/prometheus "prometheus")
     * [Docker-compose部署Prometheus+AlertManager实现邮件告警](监控/prometheus/Docker-compose部署Prometheus+AlertManager实现邮件告警.md "Docker-compose部署Prometheus+AlertManager实现邮件告警")
     * [MySQL监控--单机](监控/prometheus/MySQL监控--单机.md "MySQL监控--单机")
@@ -97,6 +107,7 @@
 * [云平台](云平台 "云平台")
 * [虚拟化](虚拟化 "虚拟化")
 * [数据库](数据库 "数据库")
+
   * [MySQL](数据库/MySQL/ "MySQL")
     * [快速部署MySQL8](数据库/MySQL/快速部署MySQL8.md "快速部署MySQL8")
     * [MyFlash-MySQL数据回滚工具](数据库/MySQL/MyFlash-MySQL数据回滚工具.md "MyFlash-MySQL数据回滚工具")
@@ -111,15 +122,23 @@
   * [Redis](数据库/Redis/ "Redis")
     * [快速部署单机版redis6](数据库/Redis/快速部署单机版redis6.md "快速部署单机版redis6")
 * [日志](日志 "日志")
+
   * [ElasticSearch](日志/ElasticSearch/ "ElasticSearch")
     * [docker-compose进行ElasticSearch8集群部署](日志/ElasticSearch/docker-compose进行ElasticSearch8集群部署.md "docker-compose进行ElasticSearch8集群部署")
 * [安全](安全 "安全")
+
   * [iptables基础与操作](安全/iptables基础与操作.md "iptables 基础与操作")
   * [Centos7升级9.8p1处理方案](安全/Centos7升级9.8p1处理方案.md "Centos7升级9.8p1处理方案")
   * [Ubuntu防火墙UFW简介](安全/Ubuntu防火墙UFW简介.md "Ubuntu防火墙UFW简介")
+  * [Systemctl](安全/Systemd命令组.md "Systemctl")
   * [部署jumpserver](安全/Docker-compose部署jumpserver.md "部署jumpserver")
+* [GPT](AI "GPT")
+
+  * [CodeGeeX-智能编程助手](AI/CodeGeeX-智能编程助手.md "CodeGeeX-智能编程助手")
+  * [OllamaLinux部署与应用LLama3](AI/OllamaLinux部署与应用LLama3.md "OllamaLinux部署与应用LLama3")
 * [等保](等保 "等级保护")
 * [国产化](国产化 "国产化")
+
   * [麒麟V10离线安装docker](国产化/麒麟V10离线安装docker.md "麒麟V10离线安装docker")
   * [麒麟V10离线安装containerd](国产化/麒麟V10离线安装containerd.md "麒麟V10离线安装containerd")
   * [ARM64部署OPENVPN](国产化/ARM64部署OPENVPN.md "ARM64部署OPENVPN")
@@ -131,5 +150,10 @@
   * [K8S1.24.9部署metrics-server](云原生/kubernetes/metrics-server部署文档.md "K8S1.24.9部署metrics-server")
   * [K8S部署数据库审计平台Yearning3.1.8](数据库/MySQL/K8S部署数据库审计平台Yearning3.1.8.md "K8S部署数据库审计平台Yearning3.1.8")
 * [工具](工具 "工具")
+
   * [日常工具](工具/日常工具/日常工具.md "日常工具")
   * [写文工具](工具/写文工具/写博文神器.md "写文神器")
+
+**友链**
+---
+- [![Github](static/images/github.svg)Github](https://github.com/llody55)
