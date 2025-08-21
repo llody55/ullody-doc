@@ -2,7 +2,7 @@
  * @Author: llody 745719408@qq.com
  * @Date: 2024-03-18 09:58:16
  * @LastEditors: llody 745719408@qq.com
- * @LastEditTime: 2025-04-09 17:24:21
+ * @LastEditTime: 2025-08-21 17:47:55
  * @FilePath: \ullody-doc\docs\_sidebar.md
  * @Description: 自定义侧边栏
 -->
@@ -129,6 +129,7 @@
 
   * [iptables基础与操作](安全/iptables基础与操作.md "iptables 基础与操作")
   * [Centos7升级9.8p1处理方案](安全/Centos7升级9.8p1处理方案.md "Centos7升级9.8p1处理方案")
+  * [Centos7升级openssh9.8p1-10.0p2](安全/Centos7升级openssh9.8p1-10.0p2.md "Centos7升级openssh9.8p1-10.0p2")
   * [Ubuntu防火墙UFW简介](安全/Ubuntu防火墙UFW简介.md "Ubuntu防火墙UFW简介")
   * [Systemctl](安全/Systemd命令组.md "Systemctl")
   * [部署jumpserver](安全/Docker-compose部署jumpserver.md "部署jumpserver")
